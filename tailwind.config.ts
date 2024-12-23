@@ -1,7 +1,9 @@
 import type { Config } from "tailwindcss";
 
 const number = 14;  // Base number for font sizes
-
+const colorClasses = [
+  
+];
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,27 +11,7 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: {
-      'primary-sidebar' : '#1e1e2d',
-      'blue': '#1a89ff',
-      'red': '#dc3545',
-      'teal': '#17a2b8',
-      'orange': '#ff7849',
-      'green': '#28a745',
-      'yellow': '#ffc107',
-      'black': '#212529',
-      'darkGray': '#8D8D8D',
-      'gray': '#A5A5A5',
-      'lightGray': '#E0E0E0',
-      'warning': {
-        'default': '#FDA212',
-        'light': '#fda21240',
-      },
-      'info': {
-        'default': '#1ab6ff',
-        'light': '#e6f7ff',
-      },
-    },
+   
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
       serif: ['Poppins', 'serif'],
