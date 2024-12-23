@@ -1,6 +1,13 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+// src/pages/_app.tsx
+import MainLayout from '../layouts/MainLayout';
+import '../styles/globals.css';  // Ensure Tailwind's global styles are loaded
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+const App = ({ Component, pageProps }: { Component: React.ComponentType; pageProps: any }) => {
+  return (
+    <MainLayout>
+      <Component {...pageProps} />
+    </MainLayout>
+  );
+};
+
+export default App;
