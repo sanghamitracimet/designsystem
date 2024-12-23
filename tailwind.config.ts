@@ -11,7 +11,12 @@ export default {
   theme: {
     colors: {
       'primary-sidebar' : '#1e1e2d',
+      'white': '#ffffff',
       'blue': '#1a89ff',
+      'off-blue':'#5278ff',
+      'off-purple':'#817eff',
+      'off-pink':'#ff8daf',
+      'sky-blue':'#4cbfff',
       'red': '#dc3545',
       'teal': '#17a2b8',
       'orange': '#ff7849',
