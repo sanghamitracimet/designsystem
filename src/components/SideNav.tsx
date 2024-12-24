@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const SideNav = () => {
   return (
-    <div className="fixed top-0 left-0 w-[20%] h-full bg-gray-800 text-white p-4 border-r-2 border-yellow z-10">
-      <h2 className="text-2xl mb-6">My App</h2>
+    <div className="fixed top-0 left-0 w-[15%] h-full bg-primary-sidebar text-white p-4 z-10">
+      <h2 className="text-2xl mb-8">My App</h2>
       <ul className="space-y-4">
         <li>
           <Link href="/">Dashboard</Link>
@@ -16,7 +16,7 @@ const SideNav = () => {
           <Link href="/datatable">Data Table</Link>
         </li>
         <li>
-          <Link href="/page4">Todo</Link>
+          <Link href="/todo">Todo</Link>
         </li>
       </ul>
     </div>

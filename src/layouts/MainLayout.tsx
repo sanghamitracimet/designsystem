@@ -3,12 +3,13 @@ import SideNav from '../components/SideNav';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex w-[100%]">
+    <div className="flex flex-row">
       {/* Sidebar */}
+      <div className='w-[15%]'>
       <SideNav />
-
+      </div>
       {/* Main Content */}
-      <div className="ml-[20%] w-[80%] p-4 border-l-2 border-white">
+      <div className="ml-[15%] w-[85%] p-4">
         {children}
       </div>
     </div>
