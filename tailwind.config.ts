@@ -19,9 +19,9 @@ export default {
       'yellow': '#ffc107',
       'black': '#212529',
       'darkGray': '#8D8D8D',
+      'white': '#fff',
       'gray': '#A5A5A5',
       'lightGray': '#E0E0E0',
-      'white' : '#fff',
       'warning': {
         'default': '#FDA212',
         'light': '#fda21240',
@@ -59,6 +59,9 @@ export default {
       },
       borderRadius: {
         '4xl': '2rem',
+      },
+      boxShadow: {
+        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
       }
     }
   },
