@@ -26,6 +26,7 @@ export default {
       'darkGray': '#8D8D8D',
       'gray': '#A5A5A5',
       'lightGray': '#E0E0E0',
+      'white' : '#fff',
       'warning': {
         'default': '#FDA212',
         'light': '#fda21240',
