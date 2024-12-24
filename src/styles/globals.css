@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* src/styles/globals.css */
+
+a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 8px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+h1, h2 {
+  color: #333;
+}

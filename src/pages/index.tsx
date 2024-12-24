@@ -1,7 +1,14 @@
-const index = () => {
-  return (
-    <div>root page</div>
-  )
-}
+import AreaChart from "@/components/AreaChart";
+import DashboardCards from "@/components/DashboardCards";
 
-export default index
+// src/pages/index.tsx
+const Home = () => {
+  return (
+    <div className="w-[100%]">
+      <DashboardCards />
+      <AreaChart />
+    </div>
+  );
+};
+
+export default Home;
