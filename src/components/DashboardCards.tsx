@@ -15,29 +15,29 @@ const DashboardCards: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
         {/* Passing both icon and icon2 components directly as props */}
         <SingleDashboardCard 
-          number={1} 
-          subheading="Sales" 
+          number={150}
+          subheading="New Orders" 
           icon={SlHandbag}  // Passing the first icon component
           icon2={FaArrowAltCircleRight} // Passing the second icon component
           backgroundColor="teal" 
         />
         <SingleDashboardCard 
-          number={2} 
-          subheading="Revenue" 
+          number = {53}
+          subheading="Bounce Rate" 
           icon={IoStatsChartSharp}  // Passing the first icon component
           icon2={FaArrowAltCircleRight} // Passing the second icon component
           backgroundColor="green" 
         />
         <SingleDashboardCard 
-          number={3} 
-          subheading="Users" 
+          number={42} 
+          subheading="User Registrations" 
           icon={FiUserPlus}  // Passing the first icon component
           icon2={FaArrowAltCircleRight} // Passing the second icon component
           backgroundColor="#d8a304" 
         />
         <SingleDashboardCard 
-          number={4} 
-          subheading="Growth" 
+          number={65} 
+          subheading="Unique Visitors" 
           icon={IoPieChart}  // Passing the first icon component
           icon2={FaArrowAltCircleRight} // Passing the second icon component
           backgroundColor="#dc3545" 
