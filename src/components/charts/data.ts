@@ -58,16 +58,18 @@ export const lineChartData = {
       label: "Revenue",
       data: [100, 200, 150, 300, 250],
       fill: true,
-      borderColor: "#D6CFB4",
+      borderColor: 'rgb(75, 192, 100, 0.8)',
       backgroundColor: 'transparent',
       tension: 0.4,
-      pointRadius: 0
+      pointRadius: 0,
+      borderWidth: 2
     },
     {
         fill: true,
         label: "Visitors",
-        data: [220, 50, 370, 80, 180],
-        borderColor: '#5DB996',
+        data: [220, 55, 370, 80, 180],
+        // backgroundColor: "rgba(210, 214, 222, 1)",
+        borderColor: 'rgb(75, 192, 192)',
         backgroundColor: 'transparent',
         tension: 0.4,
         borderWidth: 2,
@@ -105,32 +107,28 @@ export const areaChartData = {
 
 export const donutChartData = {
     labels: [
-      "Chrome", 
-      "IE", 
-      "Fire Fox", 
-      "Safari", 
-      "Opera", 
-      "Navigator",
+      "Chrome",
+      "Safari",
+      "Firefox",
+      "Edge",
+      "Opera",
+      "Others",
       
     ],
     datasets: [
       {
-        label: "Colors Distribution",
-        data: [
-          50, 25, 25, 80, 120, 
-          150, 170, 190, 210, 250,
-        ],
+        label: "Browser Market Share",
+        data: [35, 20, 25, 20, 15, 25],
         backgroundColor: [
-          "rgb(245 105 84)", 
-          "rgb(0 166 90)", 
-          "rgb(243 156 18)", 
-          "rgb(0 192 239)", 
-          "rgb(60 141 188)", 
-          "rgb(210 214 222)",   
-          "rgb(210 214 222)",   
-          
+          "rgb(171 214 194)",
+          "rgb(54, 162, 235)",
+          "rgb(75, 192, 192)",
+          "rgb(153, 102, 255)",
+          "rgb(255, 159, 64)",
+          "rgb(201, 203, 207)",
         ],
         borderWidth: 0,
+        
       },
     ],
   };
@@ -142,15 +140,15 @@ export const barChartData = {
       {
         label: "Electronics",
         data: [ 300, 400, 200, 500, 300, 600, 200,  ], 
-        backgroundColor: "rgba(79, 152, 195, 1)",
-        borderColor: "rgba(54, 162, 235, 1)",
+        borderColor: 'rgb(75, 192, 192)',
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderWidth: 0,
       },
       {
         label: "Digital Goods", 
         data: [ 250, 550, 350, 650, 150, 450,  650, ],
-        backgroundColor: "rgba(210, 214, 222, 1)",
-        borderColor: "rgba(255, 99, 132, 1)",
+        borderColor: 'rgb(75, 192, 100)',
+        backgroundColor: 'rgba(45, 152, 102, 0.4)',
         borderWidth: 0,
       },
     ],

@@ -17,7 +17,7 @@ const LineChart = () => {
   return (
   
       <div className="w-full box-border border-solid  rounded shadow-md">
-        <div className="bg-[#17a2b8] px-10 py-2 flex justify-between text-white">
+        <div className="bg-[#003459] px-8 py-1.5 flex rounded-t-md justify-between text-white">
           <h3> Line Chart </h3>
           <button onClick={() => handleShow()}>
             {visible? <BiMinus size={24} /> : <BiPlus size={24} />}

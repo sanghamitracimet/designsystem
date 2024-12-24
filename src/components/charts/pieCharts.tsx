@@ -14,8 +14,8 @@ const PieCharts = () => {
 
   return (
     <div className="w-full border-solid  rounded shadow-md">
-      <div className="w-full box-border h-auto border-solid  rounded shadow-md">
-        <div className="bg-red px-10 py-2 flex justify-between text-white">
+      <div className="w-full box-border h-auto border-solid rounded shadow-md">
+        <div className="bg-[#003459] px-8 py-1 flex rounded-t-md justify-between text-white">
           <h3> Donut Chart </h3>
           <button onClick={() => handleShow()}>
             {visible ? <BiMinus size={24} /> : <BiPlus size={24} />}
@@ -32,8 +32,7 @@ const PieCharts = () => {
               type="doughnut"
               data={donutChartData}
               options={noAxisOptions}
-              className="p-2.5 "
-              
+              className="p-2 h-64"
             />
           </div>
         ) : (
