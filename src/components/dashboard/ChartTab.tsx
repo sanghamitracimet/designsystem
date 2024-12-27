@@ -19,6 +19,7 @@ const ChartTab: React.FC = () => {
                         onClick={() => setActiveTab('area')}
                         className={`px-4 py-2 rounded-md text-sm font-semibold ${activeTab === 'area' ? 'bg-blue text-white' : 'bg-white'}`}
                     >
+                        
                         Area
                     </button>
                     <button

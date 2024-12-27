@@ -1,4 +1,5 @@
 // src/layouts/MainLayout.tsx
+import Nav from '@/components/Nav';
 import SideNav from '../components/SideNav';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
@@ -10,6 +11,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       </div>
       {/* Main Content */}
       <div className="flex-1 flex-grow pt-4 overflow-y-auto">
+        <Nav />
         <main className="p-6">
           {children}
         </main>
