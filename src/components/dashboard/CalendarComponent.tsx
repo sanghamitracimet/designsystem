@@ -71,7 +71,7 @@ const CalendarComponent: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto p-2 bg-white rounded-lg shadow-md border-1 border-teal">
+    <div className="max-w-lg mx-auto p-2 bg-white rounded-lg shadow-md border-1 border-teal">
       {/* Header with Month and Year */}
       <div className="flex justify-between items-center mb-6">
         <button
