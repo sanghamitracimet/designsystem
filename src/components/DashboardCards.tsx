@@ -9,7 +9,7 @@ import SingleDashboardCard from './SingleDashboardCard';
 
 const DashboardCards: React.FC = () => {
   return (
-    <div className='w-[100%]'>
+    <div className='w-full'>
       <h2 className="text-3xl font-bold mb-6">Dashboard</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
         {/* Passing both icon and icon2 components directly as props */}
