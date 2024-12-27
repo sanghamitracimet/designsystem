@@ -4,12 +4,20 @@ interface BtnProps {
   title: string;
   textColor: string;
   bgColor: string;
+  classNames?: string[]; // Optional array of additional class names
 }
 
-function Button({ title, textColor, bgColor }: BtnProps) {
-    console.log({bgColor});
+function Button({ title, textColor, bgColor, classNames = [] }: BtnProps) {
+  // Combine base classes with dynamic classes
+  const combinedClasses = [
+    `text-${textColor}`, // Dynamic text color
+    bgColor, // Dynamic background color
+    "p-2 rounded-md", // Default classes
+    ...classNames, // Additional classes from the array
+  ].join(" "); // Join them into a single string
+
   return (
-    <button className={`text-${textColor} ${bgColor} p-2 w-20 rounded-md`} >
+    <button className={combinedClasses}>
       {title}
     </button>
   );
