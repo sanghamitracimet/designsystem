@@ -1,7 +1,9 @@
 import type { Config } from "tailwindcss";
 
-const number = 14;  // Base number for font sizes
-
+const number = 14;
+const colorClasses = [
+  
+];
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,12 +13,7 @@ export default {
   theme: {
     colors: {
       'primary-sidebar' : '#1e1e2d',
-      'white': '#ffffff',
       'blue': '#1a89ff',
-      'off-blue':'#5278ff',
-      'off-purple':'#817eff',
-      'off-pink':'#ff8daf',
-      'sky-blue':'#4cbfff',
       'red': '#dc3545',
       'teal': '#17a2b8',
       'orange': '#ff7849',
@@ -24,9 +21,9 @@ export default {
       'yellow': '#ffc107',
       'black': '#212529',
       'darkGray': '#8D8D8D',
+      'white': '#fff',
       'gray': '#A5A5A5',
       'lightGray': '#E0E0E0',
-      'white' : '#fff',
       'warning': {
         'default': '#FDA212',
         'light': '#fda21240',
@@ -64,6 +61,9 @@ export default {
       },
       borderRadius: {
         '4xl': '2rem',
+      },
+      boxShadow: {
+        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
       }
     }
   },

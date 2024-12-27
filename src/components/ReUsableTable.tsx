@@ -62,7 +62,6 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
   };
 
   return (
-    <>
       <div className="relative overflow-x-auto border border-gray rounded-md m-5 p-5 shadow-md sm:rounded-lg">
         <Dropdown buttonLabel={dropdownItems.buttonLabel} options={dropdownItems.options} onSort={dropdownItems.onSort} />
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 overflow-x-scroll">
@@ -131,7 +130,6 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
           </button>
         </div>
       </div>
-    </>
   );
 }
 
