@@ -5,9 +5,9 @@ import DashboardCards from "@/components/DashboardCards";
 // src/pages/index.tsx
 const Home = () => {
   return (
-    <div className="w-[100%]">
+    <div className="flex-col flex flex-grow">
       <DashboardCards />
-      <div className="flex flex-wrap gap-5">
+      <div className="flex flex-wrap gap-5 mt-6">
       <AreaChart />
       <CalendarComponent />
       </div>
