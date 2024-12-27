@@ -43,3 +43,34 @@ export interface TaskFormProps{
   setAddItemClicked: React.Dispatch<React.SetStateAction<boolean>>;
   handleSaveTask: ()=> void
 }
+
+export interface TableHeadings {
+    id: number;
+    label: string;
+  }
+  
+  export interface TableRows {
+    id: string;
+    status: string;
+    customer: string;
+    estate: string;
+    total: number;
+    advance: number;
+    balance: number;
+  }
+  
+  export interface TableDetails {
+    tableHeadings: TableHeadings[];
+    tableRows: TableRows[];
+  }
+  
+  export interface ReUsableTableProps {
+    tableDetails: TableDetails;
+  }
+  
+  export interface DropdownProps {
+    options: string[]; // Array of options to display in the dropdown
+    onSort: (sortBy: string) => void; // Function that handles sorting when an option is selected
+    buttonLabel: string; // Label for the dropdown button
+  }
+  

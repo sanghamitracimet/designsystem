@@ -12,9 +12,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex min-h-screen">
 
-      <div className='w-56'>
+      {/* <aside className='lg:w-56 md:w-0 sm:w-0'> */}
         <SideNav isOpen={isSideNavOpen} toggleSideNav={toggleSideNav} />
-      </div>
+      {/* </aside> */}
 
       <div className="flex-1 flex-grow pt-4 overflow-y-auto">
         <Nav toggleSideNav={toggleSideNav} />

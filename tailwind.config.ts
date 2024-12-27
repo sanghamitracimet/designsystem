@@ -50,12 +50,12 @@ export default {
           light: '#e6f7ff',
         }
       },
-      screens: {
-        desktop: "80rem", // 1280px = 80rem (assuming 16px base font size)
-        laptop: "68.25rem", // 1092px = 68.25rem
-        tablet: "48rem", // 768px = 48rem
-        phone: "30rem", // 480px = 30rem
-      },
+      // screens: {
+      //   desktop: "80rem", // 1280px = 80rem (assuming 16px base font size)
+      //   laptop: "68.25rem", // 1092px = 68.25rem
+      //   tablet: "48rem", // 768px = 48rem
+      //   phone: "30rem", // 480px = 30rem
+      // },
       spacing: {
         "8xl": "96rem",
         "9xl": "128rem",
