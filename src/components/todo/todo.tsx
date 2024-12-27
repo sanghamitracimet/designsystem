@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaClipboardList } from "react-icons/fa";
-import List from "@/components/todo/List";
+import List from "./List";
 import { todoProps } from "@/types";
 
 const todo = () => {

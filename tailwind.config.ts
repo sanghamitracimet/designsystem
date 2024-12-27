@@ -1,9 +1,9 @@
 import type { Config } from "tailwindcss";
 
 const number = 14;
-const colorClasses = [
+// const colorClasses = [
   
-];
+// ];
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
