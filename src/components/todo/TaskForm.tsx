@@ -1,7 +1,7 @@
 import { TaskFormProps } from "@/types";
 import { useRef, useEffect } from "react";
 
-const taskForm : React.FC<TaskFormProps> = ({
+const TaskForm : React.FC<TaskFormProps> = ({
   taskName,
   setTaskName,
   priority,
@@ -100,4 +100,4 @@ const taskForm : React.FC<TaskFormProps> = ({
   );
 };
 
-export default taskForm;
+export default TaskForm;

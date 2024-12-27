@@ -3,7 +3,7 @@ import { FaClipboardList } from "react-icons/fa";
 import List from "@/components/todo/List";
 import { todoProps } from "@/types";
 
-const todo = () => {
+const Todo = () => {
   const [addItemClicked, setAddItemClicked] = useState<boolean>(false);
   const [todos, setTodos] = useState<todoProps[]>([]);
 
@@ -50,4 +50,4 @@ const todo = () => {
   );
 };
 
-export default todo;
+export default Todo;

@@ -1,20 +1,20 @@
 // src/components/ChartComponent.tsx
 import React, { useState, useEffect, useRef } from 'react';
-import { Line } from 'react-chartjs-2';  // For Area chart (Line chart with fill)
-import { Doughnut } from 'react-chartjs-2';  // For Donut chart
+// import { Line } from 'react-chartjs-2';  // For Area chart (Line chart with fill)
+// import { Doughnut } from 'react-chartjs-2';  // For Donut chart
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 
-// Register the necessary components from Chart.js
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement  // Register ArcElement for the donut chart
-);
+// // Register the necessary components from Chart.js
+// ChartJS.register(
+//   CategoryScale,
+//   LinearScale,
+//   PointElement,
+//   LineElement,
+//   Title,
+//   Tooltip,
+//   Legend,
+//   ArcElement  // Register ArcElement for the donut chart
+// );
 
 const AreaChart: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'area' | 'donut'>('area');
@@ -55,7 +55,7 @@ const AreaChart: React.FC = () => {
   return (
     <div className="p-6 w-1/2 border-1 border-teal ml-[12%]">
       {/* Tabs for chart type */}
-      <div className="flex justify-around mb-6">
+      {/* <div className="flex justify-around mb-6">
         <button
           onClick={() => setActiveTab('area')}
           className={`px-4 py-2 text-lg font-semibold ${activeTab === 'area' ? 'bg-blue text-white' : 'bg-white'}`}
@@ -71,7 +71,7 @@ const AreaChart: React.FC = () => {
       </div>
 
       {/* Chart rendering based on activeTab */}
-      <div className="relative h-[400px]">
+      {/*<div className="relative h-[400px]">
         {activeTab === 'area' ? (
           <Line
             ref={chartRef}
@@ -85,7 +85,7 @@ const AreaChart: React.FC = () => {
             options={{ responsive: true, plugins: { title: { display: true, text: 'Donut Chart' } } }}
           />
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
