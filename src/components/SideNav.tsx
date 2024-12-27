@@ -7,7 +7,7 @@ import { AiOutlineClose } from "react-icons/ai"; // Import close icon
 
 const SideNav = ({ isOpen, toggleSideNav }: { isOpen: boolean, toggleSideNav: () => void }) => {
   return (
-    <div>
+    <aside className="lg:w-56 md:w-0 sm:w-0">
       {/* Overlay for mobile screens */}
       <div
         className={`fixed inset-0 z-20 bg-black bg-opacity-50 lg:hidden ${isOpen ? "block" : "hidden"}`}
@@ -45,7 +45,7 @@ const SideNav = ({ isOpen, toggleSideNav }: { isOpen: boolean, toggleSideNav: ()
           </li>
         </ul>
       </div>
-    </div>
+    </aside>
   );
 };
 
