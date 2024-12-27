@@ -4,7 +4,6 @@ import { Line } from 'react-chartjs-2';  // For Area chart (Line chart with fill
 import { Doughnut } from 'react-chartjs-2';  // For Donut chart
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 
-// Register the necessary components from Chart.js
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -13,7 +12,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  ArcElement  // Register ArcElement for the donut chart
+  ArcElement
 );
 
 const AreaChart: React.FC = () => {
@@ -34,7 +33,6 @@ const AreaChart: React.FC = () => {
     ],
   };
 
-  // Data for Donut chart
   const donutChartData = {
     labels: ['January', 'February', 'March', 'April'],
     datasets: [
@@ -45,32 +43,29 @@ const AreaChart: React.FC = () => {
     ],
   };
 
-  // Destroy the previous chart instance before re-rendering the new chart
   useEffect(() => {
     if (chartRef.current) {
-      chartRef.current.destroy();  // Destroy the previous chart instance
+      chartRef.current.destroy();
     }
   }, [activeTab]);
 
   return (
-    <div className="p-6 w-1/2 border-1 border-teal ml-[12%]">
-      {/* Tabs for chart type */}
+    <div className="p-6 w-1/2 ">
       <div className="flex justify-around mb-6">
         <button
           onClick={() => setActiveTab('area')}
-          className={`px-4 py-2 text-lg font-semibold ${activeTab === 'area' ? 'bg-blue text-white' : 'bg-white'}`}
+          className={`px-4 py-2 text-lg font-semibold ${activeTab === 'area' ? 'bg-primary-sidebar text-white' : 'bg-white'}`}
         >
           Area Chart
         </button>
         <button
           onClick={() => setActiveTab('donut')}
-          className={`px-4 py-2 text-lg font-semibold ${activeTab === 'donut' ? 'bg-blue text-white' : 'bg-white'}`}
+          className={`px-4 py-2 text-lg font-semibold ${activeTab === 'donut' ? 'bg-primary-sidebar text-white' : 'bg-white'}`}
         >
           Donut Chart
         </button>
       </div>
 
-      {/* Chart rendering based on activeTab */}
       <div className="relative h-[400px]">
         {activeTab === 'area' ? (
           <Line

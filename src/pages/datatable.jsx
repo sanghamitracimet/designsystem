@@ -2,7 +2,7 @@
 
 import MainLayout from '../layouts/MainLayout';
 
-const Charts = () => {
+const DataTable = () => {
   return (
     <>
       <h1>Charts (Page 2)</h1>
@@ -12,4 +12,4 @@ const Charts = () => {
   );
 };
 
-export default Charts;
+export default DataTable;
