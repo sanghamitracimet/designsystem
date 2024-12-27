@@ -514,6 +514,13 @@ axobject-query@^4.1.0:
   resolved "https://registry.npmjs.org/axobject-query/-/axobject-query-4.1.0.tgz"
   integrity sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==
 
+babel-runtime@^5.3.3:
+  version "5.8.38"
+  resolved "https://registry.npmjs.org/babel-runtime/-/babel-runtime-5.8.38.tgz"
+  integrity sha512-KpgoA8VE/pMmNCrnEeeXqFG24TIH11Z3ZaimIhJWsin8EbfZy3WzFKUTIan10ZIDgRVvi9EkLbruJElJC9dRlg==
+  dependencies:
+    core-js "^1.0.0"
+
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
@@ -666,6 +673,11 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
+
+core-js@^1.0.0:
+  version "1.2.7"
+  resolved "https://registry.npmjs.org/core-js/-/core-js-1.2.7.tgz"
+  integrity sha512-ZiPp9pZlgxpWRu0M+YWbm6+aQ84XEfH1JRXvfOc/fILWI0VKhLC2LX13X1NYq4fULzLMq7Hfh43CSo2/aIaUPA==
 
 cross-spawn@^7.0.0, cross-spawn@^7.0.6:
   version "7.0.6"
@@ -2099,7 +2111,6 @@ queue-microtask@^1.2.2:
   integrity sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==
   dependencies:
     scheduler "^0.25.0"
-
 react-icons@^5.4.0:
   version "5.4.0"
   resolved "https://registry.npmjs.org/react-icons/-/react-icons-5.4.0.tgz"
@@ -2109,8 +2120,8 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
 react@*, "react@^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0", react@^19.0.0, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0 || ^19.0.0-0":
+
   version "19.0.0"
   resolved "https://registry.npmjs.org/react/-/react-19.0.0.tgz"
   integrity sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==
