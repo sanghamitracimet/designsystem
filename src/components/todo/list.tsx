@@ -1,58 +1,119 @@
-import { RxDragHandleDots2 } from "react-icons/rx";
-import Badge from "@/components/todo/badge";
-import { FaEdit } from "react-icons/fa";
+import { FaCheck, FaPlus } from "react-icons/fa";
 import { useState } from "react";
+import ActionBtn from "../buttons/actionBtn";
+import TaskForm from "./TaskForm";
+import TaskItem from "./TaskItem";
 import { ListProps } from "@/types";
 
-const list: React.FC<ListProps> = ({
-  isActionButtonClicked
+const List : React.FC<ListProps> = ({
+  setAddItemClicked,
+  addItemClicked,
+  createNewTodo,
+  todos,
+  setTodos,
+  taskCompleteHandler,
 }) => {
   const [taskName, setTaskName] = useState("");
+  const [priority, setPriority] = useState<"low" | "medium" | "high">("low");
+  const [error, setError] = useState(false);
+  const [isEditingId, setIsEditingId] = useState<null | number>(null);
+  
+  const editTaskHandler = (id:number) => {
+    const taskToEdit = todos.find((todo) => todo.id === id);
+    if(taskToEdit){
+    setTaskName(taskToEdit.task);
+    setPriority(taskToEdit.priority);
+    setIsEditingId(id);
+    }
+  };
+  const handleValidateTaskName = () => {
+    if (!taskName.trim()) {
+      setError(true);
+      return false;
+    }
+    setError(false);
+    return true;
+  };
+
+  const handleSaveTask = () => {
+    if (handleValidateTaskName()) {
+      if (isEditingId) {
+        const updatedTodos = todos.map((todo) =>
+          todo.id === isEditingId
+            ? { ...todo, task: taskName, priority: priority }
+            : todo
+        );
+        setTodos(updatedTodos);
+      } else {
+        createNewTodo(taskName, priority);
+      }
+      setTaskName("");
+      setPriority("low");
+      setError(false);
+      setIsEditingId(null);
+    }
+  };
+
   return (
-    <div className="listitem flex justify-between place-items-center bg-zinc-50 px-2.5 py-2.5 mb-1 border-l-slate-300 border-l-2 ">
-      <div className="flex flex-row gap-2 place-items-center">
-        <RxDragHandleDots2 size={28}/>
-        <input
-          type="checkbox"
-          // onChange={()=> handleCompleteTask(id)}
-          className=" accent-blue-600 w-4 h-4 text-blue-600 bg-blue-100 border-blue-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-800 focus:ring-2 dark:bg-blue-700 dark:border-blue-600"
-        />
-        {/* {isEditing ? (
-          <h3 className="font-bold text-gray-700">{taskName || "List Name"}</h3>
+    <>
+    <div className="listitem flex flex-col gap-2 min-w-max p-2 rounded-md shadow-sm">
+      {todos?.map((todo) =>
+        todo.id === isEditingId ? (
+          <TaskForm
+            key={`edit-${todo.id}`}
+            taskName={taskName}
+            priority={priority}
+            setTaskName={setTaskName}
+            setPriority={setPriority}
+            error={error}
+            setError={setError}
+            addItemClicked={addItemClicked}
+            createNewTodo={createNewTodo}
+            setAddItemClicked={setAddItemClicked}
+            handleSaveTask={handleSaveTask}
+          />
         ) : (
-          <input
-            type="text"
-            placeholder="Enter New Task"
-            className="font-bold text-gray-700 border border-gray-300 p-2 rounded"
-            value={taskName} 
-            onChange={(e) => setTaskName(e.target.value)} 
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {isSavedTask(true)
-                isActionButtonClicked((prev)=> !prev);
-              }; 
-            }}
+          <TaskItem
+          key={todo.id}
+          todo={todo}
+          editTaskHandler={editTaskHandler}
+          taskCompleteHandler={taskCompleteHandler}/>
+        )
+      )}
+
+      {addItemClicked && (
+        <TaskForm
+          taskName={taskName}
+          setTaskName={setTaskName}
+          priority={priority}
+          setPriority={setPriority}
+          error={error}
+          setError={setError}
+          addItemClicked={addItemClicked}
+          createNewTodo={createNewTodo}
+          setAddItemClicked= {setAddItemClicked}
+          handleSaveTask={handleSaveTask}
+        />
+      )}
+      
+    </div>
+    <div className="footer bg-gray-100 flex justify-end px-2.5 py-2.5 m-0">
+        {addItemClicked || isEditingId ? (
+          <ActionBtn
+            icon={FaCheck}
+            heading="Save Item"
+            onClick={() => handleSaveTask()}
+          />
+        ) : (
+          <ActionBtn
+            icon={FaPlus}
+            heading="Add Item"
+            onClick={() => setAddItemClicked((prev) => !prev)}
           />
         )}
-        <Badge level="error" label="progress" />
       </div>
-      <div className="text-red-600" onClick={setIsEditing((prev)=> !prev)}>
-        <FaEdit />
-      </div> */}
-
-        <h3 className="font-bold text-gray-700">{taskName || "List Name"}</h3>
-        <Badge level="error" label="progress" />
-      <div className="text-red-600" >
-        <FaEdit />
-      </div>
-        <input
-          type="text"
-          placeholder="Enter New Task"
-          className="font-bold text-gray-700 border border-gray-300 p-2 rounded"
-          value={taskName}
-        />
-     </div>
-    </div>
+      </>
   );
 };
 
-export default list;
+export default List;

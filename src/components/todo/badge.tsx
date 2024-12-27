@@ -1,12 +1,10 @@
+import { BadgeProps } from '@/types';
 import { LuClock4 } from 'react-icons/lu';
 
-interface BadgeProps {
-  level: "error" | "info" | "progress" | "warning";
-  label: string;
-}
+
 
 const colorMap = {
-  error: {
+  high: {
     bg: 'bg-red-100',
     text: 'text-red-800',
     border: 'border-red-400',
@@ -18,18 +16,25 @@ const colorMap = {
     border: 'border-blue-400',
     darkText: 'dark:text-blue-400',
   },
-  progress: {
+  low: {
     bg: 'bg-green-100',
     text: 'text-green-800',
     border: 'border-green-400',
     darkText: 'dark:text-green-400',
   },
-  warning: {
+  medium: {
     bg: 'bg-yellow-100',
     text: 'text-yellow-800',
     border: 'border-yellow-400',
     darkText: 'dark:text-yellow-400',
   },
+  done: {
+    bg: 'bg-gray-400',
+    text: 'text-white',
+    border: 'border-gray-400',
+    darkText: 'dark:text-gray-400',
+  },
+
 };
 
 const Badge: React.FC<BadgeProps> = ({ level, label }) => {
@@ -37,7 +42,7 @@ const Badge: React.FC<BadgeProps> = ({ level, label }) => {
 
   return (
     <span
-      className={`flex flex-row gap-1 items-center ${bg} ${text} ${border} text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 ${darkText} border`}
+      className={`flex flex-row gap-1 items-center ${bg} ${text} ${border} text-xs font-medium me-2 px-2.5 py-0.5 rounded ${darkText} border`}
     >
       <LuClock4 />
       {label}

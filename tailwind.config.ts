@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const number = 14;  // Base number for font sizes
+const number = 14;
 const colorClasses = [
   
 ];
@@ -11,7 +11,6 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-   
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
       serif: ['Poppins', 'serif'],
