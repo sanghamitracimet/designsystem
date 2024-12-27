@@ -5,7 +5,6 @@ import { FiUserPlus } from "react-icons/fi";
 import { IoStatsChartSharp } from "react-icons/io5";
 import { IoPieChart } from "react-icons/io5";
 import { FaArrowAltCircleRight } from "react-icons/fa"; // Importing the second icon
-
 import SingleDashboardCard from './SingleDashboardCard';
 
 const DashboardCards: React.FC = () => {
