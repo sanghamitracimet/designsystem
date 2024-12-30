@@ -71,12 +71,12 @@ const CalendarComponent: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto p-2 bg-white rounded-lg shadow-md border-1 border-teal">
+    <div className="max-w-lg mx-auto p-2 bg-white rounded-lg shadow-md border-1 border-teal">
       {/* Header with Month and Year */}
       <div className="flex justify-between items-center mb-6">
         <button
           onClick={goToPreviousMonth}
-          className="px-4 py-2 bg-blue text-white rounded-lg hover:bg-primary-sidebar"
+          className="px-4 py-2 bg-primary-sidebar text-white rounded-lg hover:bg-primary-sidebar"
         >
           Previous
         </button>
@@ -85,7 +85,7 @@ const CalendarComponent: React.FC = () => {
         </h2>
         <button
           onClick={goToNextMonth}
-          className="px-4 py-2 bg-blue text-white rounded-lg hover:bg-primary-sidebar"
+          className="px-4 py-2 bg-primary-sidebar text-white rounded-lg hover:bg-primary-sidebar"
         >
           Next
         </button>

@@ -1,10 +1,9 @@
-import MainLayout from '@/layouts/MainLayout'
-import Todo from "../components/todo/Todo.tsx"
+import Todo from "../components/todo/Todo"
 const todo = () => {
   return (
-    <MainLayout>
+    <>
       <Todo/>
-    </MainLayout>
+    </>
   )
 }
 

@@ -97,7 +97,7 @@ const List : React.FC<ListProps> = ({
       )}
       
     </div>
-    <div className="footer bg-gray-100 flex justify-end px-2.5 py-2.5 m-0">
+    <div className="footer bg-listGray flex justify-end px-2.5 py-2.5 m-0">
         {addItemClicked || isEditingId ? (
           <ActionBtn
             icon={FaCheck}

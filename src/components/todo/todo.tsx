@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
-import { FaClipboardList } from "react-icons/fa";
+import { useCallback, useEffect, useState } from "react";
+import { LiaClipboardListSolid } from "react-icons/lia";
 import List from "@/components/todo/List";
 import { todoProps } from "@/types";
-
+import { todoData } from "./todoData";
+import Pagination from "@/components/Pagination"
 const Todo = () => {
   const [addItemClicked, setAddItemClicked] = useState<boolean>(false);
-  const [todos, setTodos] = useState<todoProps[]>([]);
+  const [todos, setTodos] = useState<todoProps[]>(todoData);
+  const [displayedTodos, setDisplayedTodos] = useState<todoProps[]>([]);
 
   const createNewTodo = (newTask: string, priorityLevel : "high" | "medium" | "low") => {
     const newTodo: todoProps = {
@@ -28,12 +30,20 @@ const Todo = () => {
     );
   };
 
+  
   return (
     <div className="container border border-lightGray">
       {/* header section */}
-      <div className="header flex flex-row gap-2 place-items-center border-b-2 border-collapse px-5 py-2.5">
-        <FaClipboardList className="headerIcon" />
+      <div className="header flex justify-between border-b-[1px] border-lightGray border-collapse px-5 py-2.5">
+      <div className="header flex flex-row gap-2 place-items-center ">
+        <LiaClipboardListSolid className="headerIcon" />
         <h2 className="headerTitle"> To Do List</h2>
+      </div>
+      <Pagination
+          data={todos}
+          dataPerPage={5}
+          onPaginate={(paginatedData) => setDisplayedTodos(paginatedData)}
+        />
       </div>
       {/* body section */}
       <div>
@@ -41,7 +51,7 @@ const Todo = () => {
           addItemClicked={addItemClicked}
           setAddItemClicked = {setAddItemClicked}
           createNewTodo={createNewTodo}
-          todos={todos}
+          todos={displayedTodos}
           taskCompleteHandler={taskCompleteHandler}
           setTodos={setTodos}
         />

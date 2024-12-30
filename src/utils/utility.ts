@@ -2,16 +2,16 @@ export const BtnStatusSelector = (status: string) => {
     let color: string;
     switch (status) {
       case "Approval":
-        color = "bg-off-blue"; 
+        color = "bg-offBlue"; 
         break;
       case "Sign":
-        color = "bg-off-pink";
+        color = "bg-offPink";
         break;
       case "Briefing":
-        color = "bg-sky-blue";
+        color = "bg-skyBlue";
         break;
       case "Payment":
-        color = "bg-off-purple";
+        color = "bg-offPurple";
         break;
       default:
         color = "bg-gray";

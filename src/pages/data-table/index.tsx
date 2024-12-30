@@ -1,11 +1,17 @@
 import ReUsableTable from "@/components/ReUsableTable";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { tableData } from "./data";
+import SearchBar from "@/components/SearchBar";
 
 function Datatable() {
+
+  const [tableDetails, setTableDetails] = useState(tableData)
+
   return (
     <>
-      <ReUsableTable tableDetails={tableData} />
+      <SearchBar tableDetails = {tableDetails} setTableDetails={setTableDetails}/> 
+     <ReUsableTable tableDetails={tableDetails} setTableDetails={setTableDetails}/>
+      {/* <ReUsableTable tableDetails = {tableData}/> */}
     </>
   );
 }

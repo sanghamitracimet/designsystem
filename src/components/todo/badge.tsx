@@ -5,10 +5,10 @@ import { LuClock4 } from 'react-icons/lu';
 
 const colorMap = {
   high: {
-    bg: 'bg-red-100',
-    text: 'text-red-800',
-    border: 'border-red-400',
-    darkText: 'dark:text-red-400',
+    bg: 'bg-lightRed',
+    text: 'text-red',
+    border: 'border-red',
+    darkText: 'dark:text-red',
   },
   info: {
     bg: 'bg-blue-100',
@@ -17,22 +17,22 @@ const colorMap = {
     darkText: 'dark:text-blue-400',
   },
   low: {
-    bg: 'bg-green-100',
-    text: 'text-green-800',
-    border: 'border-green-400',
-    darkText: 'dark:text-green-400',
+    bg: 'bg-lightGreen',
+    text: 'text-green',
+    border: 'border-green',
+    darkText: 'dark:text-green',
   },
   medium: {
-    bg: 'bg-yellow-100',
-    text: 'text-yellow-800',
-    border: 'border-yellow-400',
-    darkText: 'dark:text-yellow-400',
+    bg: 'bg-lightYellow',
+    text: 'text-warning-default',
+    border: 'border-warning-default',
+    darkText: 'dark:text-warning-default',
   },
   done: {
-    bg: 'bg-gray-400',
+    bg: 'bg-gray',
     text: 'text-white',
-    border: 'border-gray-400',
-    darkText: 'dark:text-gray-400',
+    border: 'border-gray',
+    darkText: 'dark:text-gray',
   },
 
 };
