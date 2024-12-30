@@ -1,33 +1,28 @@
-// import CalendarComponent from "@/components/dashboard/CalendarComponent";
 import DashboardCards from "@/components/dashboard/DashboardCards";
 import ChartTab from "@/components/dashboard/ChartTab";
 import CalendarComponent from "@/components/dashboard/Calendar";
-import SalesGraph from "@/components/dashboard/SalesGraph";
 import Todo from "@/components/todo/Todo";
 
-// src/pages/index.tsx
 const Home = () => {
   return (
-    <div className="flex-col flex flex-grow">
+    <div className="flex flex-grow flex-col p-4">
+      {/* Dashboard Cards */}
       <DashboardCards />
-      <div className="mt-6 flex flex-col lg:flex-row lg:flex-wrap">
-        <div className="m-2 w-full lg:w-1/2">
-          <ChartTab />
+      <div className="w-full sm:w-2/3 md:w-full lg:w-full mt-6 ">
+        <ChartTab />
+      </div>
+      {/* Responsive Layout */}
+      <div className="mt-6 flex flex-wrap gap-4">
+        {/* ChartTab */}
+        <div className="w-full md:w-1/2 sm:w-full"> 
+          <Todo />
         </div>
-        <div className="w-full lg:w-1/3">
+
+        {/* CalendarComponent */}
+        <div className="md:w-[45%] sm:w-[100%] lg:w-[45%]">
           <CalendarComponent />
         </div>
       </div>
-
-      <div className="mt-6 flex flex-col lg:flex-row lg:flex-wrap">
-      <div className="w-full lg:w-1/2">
-          <Todo />
-        </div>
-        <div className="w-full lg:w-1/2">
-          <SalesGraph />
-        </div>
-      </div>
-
     </div>
   );
 };

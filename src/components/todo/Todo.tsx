@@ -1,7 +1,7 @@
 import {  useState } from "react";
 import { LiaClipboardListSolid } from "react-icons/lia";
 import List from "@/components/todo/List";
-import { Priority, TodoProps } from "@/types";
+import { Priority, TodoProps } from "@/utils/types";
 import { todoData } from "./todoData";
 import Pagination from "@/components/Pagination"
 const Todo = () => {

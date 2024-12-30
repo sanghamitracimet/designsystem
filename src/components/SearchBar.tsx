@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import { tableData } from "@/pages/data-table/data";
-import { SearchBarProps } from "@/types";
+import { SearchBarProps } from "@/utils/types";
 const SearchBar : React.FC<SearchBarProps> = ({ tableDetails, setTableDetails }) => {
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
     let val = e.target.value

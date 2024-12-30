@@ -20,8 +20,8 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ["Poppins", "sans-serif"],
-      serif: ["Poppins", "serif"],
+      sans: ["Poppins", "sans-serif"], // Correct for sans-serif
+      serif: ["Georgia", "serif"], // Use an appropriate serif font
     },
     extend: {
       
