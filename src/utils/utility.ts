@@ -18,3 +18,11 @@ export const BtnStatusSelector = (status: string) => {
     }
     return color;
   };
+
+export function range(startIndex:number, endIndex:number){
+    let result = [];
+    for (let i = startIndex; i <= endIndex; i++) {
+      result.push(i);
+    }
+    return result;
+}

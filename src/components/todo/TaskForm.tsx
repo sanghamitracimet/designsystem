@@ -3,7 +3,7 @@
 import { TaskFormProps } from "@/types";
 import { useRef, useEffect } from "react";
 
-const taskForm : React.FC<TaskFormProps> = ({
+const TaskForm : React.FC<TaskFormProps> = ({
   taskName,
   setTaskName,
   priority,
@@ -30,7 +30,7 @@ const taskForm : React.FC<TaskFormProps> = ({
         <input
           type="text"
           placeholder="New Task"
-          className="flex-grow border border-gray-300 p-1.5 text-sm rounded focus:ring-2 focus:ring-blue-500"
+          className="flex-grow border border-gray p-1.5 text-sm rounded focus:ring-2 focus:ring-skyBlue outline-none"
           value={taskName}
           onChange={(e) => setTaskName(e.target.value)}
           ref={inputRef}
@@ -49,11 +49,11 @@ const taskForm : React.FC<TaskFormProps> = ({
               id="high"
               checked={priority === "high"}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPriority(e.target.value)}
-              className="h-4 w-4 accent-red-500"
+              className="h-4 w-4 accent-red"
             />
             <label
               htmlFor="high"
-              className="ml-1 text-xs font-medium text-red-700"
+              className="ml-1 text-xs font-medium text-red"
             >
               High
             </label>
@@ -66,11 +66,11 @@ const taskForm : React.FC<TaskFormProps> = ({
               id="medium"
               checked={priority === "medium"}
               onChange={(e:React.ChangeEvent<HTMLInputElement>) => setPriority(e.target.value)}
-              className="h-4 w-4 accent-yellow-500"
+              className="h-4 w-4 accent-yellow"
             />
             <label
               htmlFor="medium"
-              className="ml-1 text-xs font-medium text-yellow-700"
+              className="ml-1 text-xs font-medium text-yellow"
             >
               Medium
             </label>
@@ -82,12 +82,12 @@ const taskForm : React.FC<TaskFormProps> = ({
               name="priority"
               id="low"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPriority(e.target.value)}
-              className="h-4 w-4 accent-green-500"
+              className="h-4 w-4 accent-green"
               checked={priority === "low"}
             />
             <label
               htmlFor="low"
-              className="ml-1 text-xs font-medium text-green-700"
+              className="ml-1 text-xs font-medium text-green"
             >
               Low
             </label>
@@ -95,10 +95,10 @@ const taskForm : React.FC<TaskFormProps> = ({
         </div>
       </div>
       {error && (
-        <span className="text-red-500 text-xs">Please provide a task name</span>
+        <span className="text-red text-xs">Please provide a task name</span>
       )}
     </div>
   );
 };
 
-export default taskForm;
+export default TaskForm;

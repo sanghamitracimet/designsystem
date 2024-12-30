@@ -44,10 +44,22 @@ export interface TaskFormProps{
   handleSaveTask: ()=> void
 }
 
+export type PaginationProps<T> = {
+  data: T[]; // generic array
+  dataPerPage: number;
+  onPaginate: (paginatedData: T[]) => void;
+};
+
 export interface TableHeadings {
     id: number;
     label: string;
   }
+export type UsePaginationParams = {
+    totalDataCount: number;
+    dataPerPage: number;
+    siblingCount: number;
+    currentPage: number;
+  };
   
   export interface TableRows {
     id: string;

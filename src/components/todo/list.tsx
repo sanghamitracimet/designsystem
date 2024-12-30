@@ -1,6 +1,6 @@
 import { FaCheck, FaPlus } from "react-icons/fa";
 import { useState } from "react";
-import ActionBtn from "../buttons/actionBtn";
+import ActionBtn from "../buttons/ActionBtn";
 import TaskForm from "./TaskForm";
 import TaskItem from "./TaskItem";
 import { ListProps } from "@/types";
@@ -10,7 +10,7 @@ const List : React.FC<ListProps> = ({
   addItemClicked,
   createNewTodo,
   todos,
-  setTodos,
+  setTodos,                                     
   taskCompleteHandler,
 }) => {
   const [taskName, setTaskName] = useState("");
@@ -97,7 +97,7 @@ const List : React.FC<ListProps> = ({
       )}
       
     </div>
-    <div className="footer bg-gray-100 flex justify-end px-2.5 py-2.5 m-0">
+    <div className="footer bg-listGray flex justify-end px-2.5 py-2.5 m-0">
         {addItemClicked || isEditingId ? (
           <ActionBtn
             icon={FaCheck}

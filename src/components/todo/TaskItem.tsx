@@ -1,5 +1,6 @@
 import { RxDragHandleDots2 } from "react-icons/rx";
-import Badge from "./badge";
+import Badge from "@/components/todo/Badge";
+
 import { FaEdit } from "react-icons/fa";
 import { TaskItemProps } from "@/types";
 
@@ -11,13 +12,13 @@ const TaskItem : React.FC<TaskItemProps>= ({
   return (
     <div
     key={todo.id}
-    className="group flex items-center justify-between p-2 bg-gray-100 border-l-2 border-gray-200 "
+    className="group flex items-center justify-between p-2 bg-listGray border-l-2 border-darkGray text-textGray"
   >
     <div className="flex items-center gap-2">
-      <RxDragHandleDots2 size={24} className="text-gray-600 cursor-move" />
+      <RxDragHandleDots2 size={24} className="text-darkerGray cursor-move" />
       <input
         type="checkbox"
-        className="h-4 w-4 text-blue-600  focus:ring-blue-500 accent-blue-600"
+        className="h-4 w-4 text-blue focus:ring-blue  accent-blue"
         checked={todo.isCompleted}
         onChange={() => taskCompleteHandler(todo.id)}
       />
@@ -36,7 +37,7 @@ const TaskItem : React.FC<TaskItemProps>= ({
       />
     </div>
     <button
-      className="invisible text-red-500 hover:text-red-700 group-hover:visible pl-20"
+      className="invisible  text-red group-hover:visible pl-20"
       onClick={() => editTaskHandler(todo.id)}
     >
       <FaEdit />

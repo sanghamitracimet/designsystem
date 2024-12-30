@@ -1,4 +1,4 @@
-import Todo from "../components/todo/todo"
+import Todo from "../components/todo/Todo"
 const todo = () => {
   return (
     // <MainLayout>

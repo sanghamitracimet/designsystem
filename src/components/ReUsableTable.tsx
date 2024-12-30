@@ -171,7 +171,7 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
         <button
           onClick={goToPreviousPage}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-blue-500 text-black rounded-md disabled:bg-gray-300"
+          className="px-4 py-2 bg-blue-500 text-black rounded-md disabled:bg-gray-300 disabled:cursor-not-allowed"
         >
           Previous
         </button>
@@ -181,7 +181,7 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
         <button
           onClick={goToNextPage}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-blue-500 text-black rounded-md disabled:bg-gray-300"
+          className="px-4 py-2 bg-blue-500 text-black rounded-md disabled:bg-listGray disabled:cursor-not-allowed"
         >
           Next
         </button>
