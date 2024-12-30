@@ -86,7 +86,7 @@ const CalendarComponent = () => {
   };
 
   return (
-    <div className="flex p-8 w-full shadow-md">
+    <div className="flex p-8 w-full shadow-md justify-center">
       <Calendar
         onClickDay={handleDateClick}
         value={selectedDate}
