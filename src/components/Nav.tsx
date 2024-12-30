@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from "react";
 
 const Nav = ({ toggleSideNav }: { toggleSideNav: () => void }) => {
   return (
