@@ -1,7 +1,9 @@
 "üse client"
 
-import { TaskFormProps } from "@/types";
+import { Priority, TaskFormProps } from "@/types";
 import { useRef, useEffect } from "react";
+
+
 
 const TaskForm : React.FC<TaskFormProps> = ({
   taskName,
@@ -46,9 +48,9 @@ const TaskForm : React.FC<TaskFormProps> = ({
               type="radio"
               value="high"
               name="priority"
-              id="high"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPriority(e.target.value as Priority)}
               checked={priority === "high"}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPriority(e.target.value)}
+              // onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPriority(e.target.value as "low" | "medium" | "high")}
               className="h-4 w-4 accent-red"
             />
             <label
@@ -63,9 +65,9 @@ const TaskForm : React.FC<TaskFormProps> = ({
               type="radio"
               value="medium"
               name="priority"
-              id="medium"
+              onChange={(e:React.ChangeEvent<HTMLInputElement>) => setPriority(e.target.value as Priority)}
               checked={priority === "medium"}
-              onChange={(e:React.ChangeEvent<HTMLInputElement>) => setPriority(e.target.value)}
+              // onChange={(e:React.ChangeEvent<HTMLInputElement>) => setPriority(e.target.value as "low" | "medium" | "high")}
               className="h-4 w-4 accent-yellow"
             />
             <label
@@ -81,7 +83,7 @@ const TaskForm : React.FC<TaskFormProps> = ({
               value="low"
               name="priority"
               id="low"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPriority(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPriority(e.target.value as Priority)}
               className="h-4 w-4 accent-green"
               checked={priority === "low"}
             />

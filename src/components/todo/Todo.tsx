@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { LiaClipboardListSolid } from "react-icons/lia";
 import List from "@/components/todo/List";
-import { todoProps } from "@/types";
+import { Priority, TodoProps } from "@/types";
 import { todoData } from "./todoData";
 import Pagination from "@/components/Pagination"
 const Todo = () => {
   const [addItemClicked, setAddItemClicked] = useState<boolean>(false);
-  const [todos, setTodos] = useState<todoProps[]>(todoData);
-  const [displayedTodos, setDisplayedTodos] = useState<todoProps[]>([]);
+  const [todos, setTodos] = useState<TodoProps[]>(todoData);
+  const [displayedTodos, setDisplayedTodos] = useState<TodoProps[]>([]);
 
-  const createNewTodo = (newTask: string, priorityLevel : "high" | "medium" | "low") => {
-    const newTodo: todoProps = {
+  const createNewTodo = (newTask: string, priorityLevel : Priority) => {
+    const newTodo: TodoProps = {
       id: Date.now(),
       task: newTask,
       isCompleted: false,
@@ -18,7 +18,7 @@ const Todo = () => {
     };
 
     setTodos((prev) => [...prev, newTodo]);
-    setAddItemClicked((prev)=>false);
+    setAddItemClicked(false);
   };
 
   const taskCompleteHandler = (id: number) => {

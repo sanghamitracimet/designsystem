@@ -1,9 +1,11 @@
-export interface todoProps{
+export interface TodoProps{
     id: number,
     task: string,
     isCompleted: boolean,
-    priority: "high" | "low" | "medium"
+    priority: Priority
 }
+
+export type Priority = "low" | "medium" | "high";
 
 export interface ActionBtnProps{
     icon: React.ElementType,
@@ -14,9 +16,9 @@ export interface ActionBtnProps{
 export interface ListProps{
     setAddItemClicked: React.Dispatch<React.SetStateAction<boolean>>;
     addItemClicked: boolean
-    createNewTodo: (taskName: string, priority: "low" | "medium" | "high") => void
-    todos: todoProps[];
-    setTodos: React.Dispatch<React.SetStateAction<todoProps[]>>;
+    createNewTodo: (taskName: string, priority: Priority) => void
+    todos: TodoProps[];
+    setTodos: React.Dispatch<React.SetStateAction<TodoProps[]>>;
     taskCompleteHandler: (id: number)=>void;
 }
 
@@ -26,7 +28,7 @@ export interface BadgeProps {
 }
 
 export interface TaskItemProps{
-    todo: todoProps
+    todo: TodoProps
     editTaskHandler: (id: number) => void
     taskCompleteHandler: (id: number) => void
 }
@@ -34,7 +36,7 @@ export interface TaskItemProps{
 export interface TaskFormProps{
     taskName: string;
   setTaskName: React.Dispatch<React.SetStateAction<string>>
-  priority: "high" | "low" | "medium"
+  priority: Priority;
   setPriority: React.Dispatch<React.SetStateAction<"high" | "low" | "medium">>
   error: boolean
   setError:React.Dispatch<React.SetStateAction<boolean>>

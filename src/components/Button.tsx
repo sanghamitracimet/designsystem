@@ -1,10 +1,10 @@
 import React from "react";
 
 interface BtnProps {
-  title: string;
-  textColor: string;
-  bgColor: string;
-  classNames?: string[]; // Optional array of additional class names
+  readonly title: string;
+  readonly textColor: string;
+  readonly bgColor: string;
+  readonly classNames?: readonly string[]; // Optional array of additional class names
 }
 
 function Button({ title, textColor, bgColor, classNames = [] }: BtnProps) {
