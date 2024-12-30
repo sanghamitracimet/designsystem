@@ -1,4 +1,4 @@
-import { ActionBtnProps } from "@/types";
+import { ActionBtnProps } from "@/utils/types";
 
 
 const ActionBtn: React.FC<ActionBtnProps> = ({ icon:Icon , heading, onClick}) => {

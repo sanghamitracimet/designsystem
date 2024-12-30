@@ -1,6 +1,6 @@
 "üse client"
 
-import { Priority, TaskFormProps } from "@/types";
+import { Priority, TaskFormProps } from "@/utils/types";
 import { useRef, useEffect } from "react";
 
 
