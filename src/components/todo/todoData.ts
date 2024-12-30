@@ -1,6 +1,6 @@
-import { todoProps } from "@/types";
+import { TodoProps } from "@/types";
 
-export const todoData: todoProps[] = [
+export const todoData: TodoProps[] = [
   { id: 1, task: "Buy groceries", priority: "high", isCompleted: false },
   { id: 2, task: "Clean the house", priority: "medium", isCompleted: true },
   { id: 3, task: "Finish project report", priority: "high", isCompleted: false },
