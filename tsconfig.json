@@ -17,6 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/todo/Todo.tsx", "src/components/todo/List.tsx", "src/components/todo/TaskForm.tsx", "src/components/SearchBar.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/todo/Todo.tsx", "src/components/todo/List.tsx", "src/components/todo/TaskForm.tsx", "src/components/SearchBar.tsx"],
   "exclude": ["node_modules"]
 }

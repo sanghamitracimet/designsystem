@@ -88,3 +88,7 @@ export type UsePaginationParams = {
     buttonLabel: string; // Label for the dropdown button
   }
   
+  export interface SearchBarProps{
+   tableDetails: TableDetails; 
+   setTableDetails: React.Dispatch<React.SetStateAction<TableDetails>>;
+  }

@@ -1,6 +1,6 @@
 import { FaCheck, FaPlus } from "react-icons/fa";
 import { useState } from "react";
-import ActionBtn from "../buttons/actionBtn";
+import ActionBtn from "../buttons/ActionBtn";
 import TaskForm from "./TaskForm";
 import TaskItem from "./TaskItem";
 import { ListProps } from "@/types";

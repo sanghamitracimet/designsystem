@@ -2,10 +2,9 @@
 import { BtnStatusSelector } from "@/utils/utility";
 import Button from "./Button";
 import Avatar from "./Avatar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Dropdown from "./DropDown";
-import { ReUsableTableProps, TableRows } from "@/utils/Types";
-
+import { ReUsableTableProps, TableRows } from "@/types";
 function ReUsableTable({ tableDetails }: ReUsableTableProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredRows, setFilteredRows] = useState<TableRows[]>(
@@ -89,6 +88,12 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
     },
   };
 
+  useEffect(() => {
+    if (tableDetails.tableRows) {
+      setFilteredRows(tableDetails.tableRows);
+    }
+  }, [tableDetails.tableRows]);
+  
   return (
     <div className="relative overflow-x-auto border border-gray rounded-md m-5 p-5 shadow-md sm:rounded-lg">
       <div className="flex justify-between gap-5 mb-4">
