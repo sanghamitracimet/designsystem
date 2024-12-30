@@ -5,8 +5,8 @@ import React from 'react';
 interface SingleDashboardCardProps {
   number: number;
   subheading: string;
-  icon: React.ComponentType;  // The first icon is a React component
-  icon2: React.ComponentType; // The second icon is also a React component
+  icon: React.ElementType;  // The first icon is a React component
+  icon2: React.ElementType; // The second icon is also a React component
   backgroundColor: string;
 }
 

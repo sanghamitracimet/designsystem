@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Dropdown from "./DropDown";
 import { ReUsableTableProps, TableRows } from "@/utils/types";
 import Button from "./buttons/Button";
-function ReUsableTable({ tableDetails }: ReUsableTableProps) {
+function ReUsableTable({ tableDetails }: Readonly<ReUsableTableProps>) {
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredRows, setFilteredRows] = useState<TableRows[]>(
     tableDetails.tableRows

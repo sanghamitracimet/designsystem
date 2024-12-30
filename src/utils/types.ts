@@ -20,6 +20,7 @@ export interface ListProps {
   todos: TodoProps[];
   setTodos: React.Dispatch<React.SetStateAction<TodoProps[]>>;
   taskCompleteHandler: (id: number) => void;
+  originalTodos: TodoProps[];
 }
 
 export interface BadgeProps {
