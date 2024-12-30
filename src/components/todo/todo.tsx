@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { LiaClipboardListSolid } from "react-icons/lia";
 import List from "@/components/todo/List";
 import { todoProps } from "@/types";

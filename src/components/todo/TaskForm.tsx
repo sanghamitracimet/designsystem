@@ -1,3 +1,5 @@
+"üse client"
+
 import { TaskFormProps } from "@/types";
 import { useRef, useEffect } from "react";
 
@@ -7,10 +9,7 @@ const TaskForm : React.FC<TaskFormProps> = ({
   priority,
   setPriority,
   error,
-  setError,
   addItemClicked,
-  createNewTodo,
-  setAddItemClicked,
   handleSaveTask,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -21,7 +20,9 @@ const TaskForm : React.FC<TaskFormProps> = ({
     }
   }, [addItemClicked]);
 
-  useEffect(() => {}, [setTaskName, setPriority]);
+  useEffect(() => {
+
+  }, [setTaskName, setPriority]);
   
   return (
     <div className="flex flex-col gap-2">

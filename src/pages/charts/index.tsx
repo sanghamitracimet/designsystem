@@ -1,7 +1,9 @@
 import AreaChart from "@/components/charts/AreaChart";
 import BarChart from "@/components/charts/BarChart";
+import DonutChart from "@/components/charts/DonutChart";
 import LineChart from "@/components/charts/lineChart";
 import PieCharts from "@/components/charts/pieCharts";
+import StackedChart from "@/components/charts/StackedChart";
 import React from "react";
 
 const chart = () => {
@@ -14,11 +16,17 @@ const chart = () => {
         <LineChart />
       </div>
       <div className="w-full">
-        <PieCharts />
+        <DonutChart />
       </div>
       <div className="w-full">
         <BarChart />
       </div>
+      <div className="w-full">
+        <PieCharts />
+      </div>
+      <div className="w-full">
+        <StackedChart />
+        </div>
     </div>
   );
 };
