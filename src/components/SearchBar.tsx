@@ -1,4 +1,3 @@
-import React, {  useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { tableData } from "@/pages/data-table/data";
 import { SearchBarProps } from "@/utils/types";
