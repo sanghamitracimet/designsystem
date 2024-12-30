@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { usePagination } from "@/components/hooks/usePagination";
-import { PaginationProps } from "@/types";
+import { PaginationProps } from "@/utils/types";
 
 const Pagination = <T,>({ data, dataPerPage, onPaginate }: PaginationProps<T>)=>{
 

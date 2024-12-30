@@ -1,4 +1,4 @@
-import { BadgeProps } from '@/types';
+import { BadgeProps } from '@/utils/types';
 import { LuClock4 } from 'react-icons/lu';
 
 

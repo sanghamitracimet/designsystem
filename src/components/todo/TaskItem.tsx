@@ -2,7 +2,7 @@ import { RxDragHandleDots2 } from "react-icons/rx";
 import Badge from "@/components/todo/Badge";
 
 import { FaEdit } from "react-icons/fa";
-import { TaskItemProps } from "@/types";
+import { TaskItemProps } from "@/utils/types";
 
 const TaskItem : React.FC<TaskItemProps>= ({
     todo,

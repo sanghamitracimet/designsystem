@@ -20,7 +20,7 @@ export const BtnStatusSelector = (status: string) => {
   };
 
 export function range(startIndex:number, endIndex:number){
-    let result = [];
+    const result = [];
     for (let i = startIndex; i <= endIndex; i++) {
       result.push(i);
     }
