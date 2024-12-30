@@ -1,5 +1,5 @@
 import { RxDragHandleDots2 } from "react-icons/rx";
-import Badge from "@/components/todo/badge";
+import Badge from "./badge";
 import { FaEdit } from "react-icons/fa";
 import { TaskItemProps } from "@/types";
 
