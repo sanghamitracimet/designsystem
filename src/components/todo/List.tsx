@@ -12,6 +12,7 @@ const List : React.FC<ListProps> = ({
   todos,
   setTodos,                                     
   taskCompleteHandler,
+  originalTodos
 }) => {
   const [taskName, setTaskName] = useState("");
   const [priority, setPriority] = useState<"low" | "medium" | "high">("low");
@@ -38,11 +39,12 @@ const List : React.FC<ListProps> = ({
   const handleSaveTask = () => {
     if (handleValidateTaskName()) {
       if (isEditingId) {
-        const updatedTodos = todos.map((todo) =>
+        const updatedTodos = originalTodos.map((todo) =>
           todo.id === isEditingId
             ? { ...todo, task: taskName, priority: priority }
             : todo
         );
+        
         setTodos(updatedTodos);
       } else {
         createNewTodo(taskName, priority);

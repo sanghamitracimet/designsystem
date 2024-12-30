@@ -3,6 +3,7 @@ import DashboardCards from "@/components/dashboard/DashboardCards";
 import ChartTab from "@/components/dashboard/ChartTab";
 import CalendarComponent from "@/components/dashboard/Calendar";
 import SalesGraph from "@/components/dashboard/SalesGraph";
+import Todo from "@/components/todo/Todo";
 
 // src/pages/index.tsx
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
 
       <div className="mt-6 flex flex-col lg:flex-row lg:flex-wrap">
       <div className="w-full lg:w-1/2">
-          {/* <Todo /> */}
+          <Todo />
         </div>
         <div className="w-full lg:w-1/2">
           <SalesGraph />

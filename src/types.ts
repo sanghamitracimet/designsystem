@@ -20,6 +20,7 @@ export interface ListProps{
     todos: TodoProps[];
     setTodos: React.Dispatch<React.SetStateAction<TodoProps[]>>;
     taskCompleteHandler: (id: number)=>void;
+    originalTodos:TodoProps[]
 }
 
 export interface BadgeProps {
@@ -92,3 +93,11 @@ export type UsePaginationParams = {
    tableDetails: TableDetails; 
    setTableDetails: React.Dispatch<React.SetStateAction<TableDetails>>;
   }
+
+  export interface BtnProps {
+    readonly title: string;
+    readonly textColor: string;
+    readonly bgColor: string;
+    readonly classNames?: readonly string[]; // Optional array of additional class names
+  }
+  

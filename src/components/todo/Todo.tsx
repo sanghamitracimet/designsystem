@@ -8,7 +8,6 @@ const Todo = () => {
   const [addItemClicked, setAddItemClicked] = useState<boolean>(false);
   const [todos, setTodos] = useState<TodoProps[]>(todoData);
   const [displayedTodos, setDisplayedTodos] = useState<TodoProps[]>([]);
-
   const createNewTodo = (newTask: string, priorityLevel : Priority) => {
     const newTodo: TodoProps = {
       id: Date.now(),
@@ -16,7 +15,6 @@ const Todo = () => {
       isCompleted: false,
       priority: priorityLevel,
     };
-
     setTodos((prev) => [...prev, newTodo]);
     setAddItemClicked(false);
   };
@@ -30,7 +28,6 @@ const Todo = () => {
     );
   };
 
-  
   return (
     <div className="container border border-lightGray">
       {/* header section */}
@@ -52,6 +49,7 @@ const Todo = () => {
           setAddItemClicked = {setAddItemClicked}
           createNewTodo={createNewTodo}
           todos={displayedTodos}
+          originalTodos = {todos}
           taskCompleteHandler={taskCompleteHandler}
           setTodos={setTodos}
         />
