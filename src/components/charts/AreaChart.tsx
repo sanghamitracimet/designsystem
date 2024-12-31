@@ -11,7 +11,7 @@ function AreaChart() {
   };
 
   return (
-    <div className="border-solid rounded shadow-md">
+    <div className={`border-solid rounded ${visible ? "shadow-md" : ""}  lg:w-full`}>
      <div className="bg-[#003459] px-8 py-1.5 flex rounded-t-md justify-between text-white">
         <h3>Area Chart</h3>
         <button
@@ -25,19 +25,15 @@ function AreaChart() {
           )}
         </button>
       </div>
-
-      <div
-        className={`transition-all duration-500 ease-in-out ${visible ? "h-auto" : "h-0"}`}
-        style={{ overflow: "hidden" }}
-      >
-        <div className="border-r-darkGray border-b-darkGray">
+      <div className={`transition-all delay-700 ease-in-out `}>
+       {visible && 
           <ChartComponent
             type="line"
             data={areaChartData}
             options={noGridOptions}
-            className="w-full p-2.5 bg-white"
+            className="p-2.5 h-64"
           />
-        </div>
+       }
       </div>
     </div>
   );
