@@ -118,7 +118,7 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
       </div>
 
       {/* Table */}
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 overflow-x-scroll">
+      <table className="w-full text-sm text-left overflow-y-scroll rtl:text-right text-gray-500 dark:text-gray-400 ">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             {tableDetails.tableHeadings.map((ele) => (
@@ -143,15 +143,15 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
           {currentRows.map((ele) => (
             <tr
               key={ele.id}
-              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-            >
+              className="bg-white border-y border-slate-200 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+            > 
               <td className="px-6 py-4">{ele.id}</td>
               <td className="px-6 py-4">
                 <Button
                   title={ele.status}
                   textColor="white"
                   bgColor={BtnStatusSelector(ele.status)}
-                  classNames={["w-20"]}
+                  classNames={["w-20"]} 
                 />
               </td>
               <th
