@@ -3,8 +3,13 @@ import React from 'react';
 interface SingleDashboardCardProps {
   number: number;
   subheading: string;
+<<<<<<< HEAD
+  icon: React.ElementType;  // The first icon is a React component
+  icon2: React.ElementType; // The second icon is also a React component
+=======
   icon: React.ComponentType;
   icon2: React.ComponentType;
+>>>>>>> 40aeb4b715abce6d997640aba3b8a62ccd755c24
   backgroundColor: string;
 }
 
