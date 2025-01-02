@@ -1,13 +1,18 @@
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import { LiaClipboardListSolid } from "react-icons/lia";
 import List from "@/components/todo/List";
 import { Priority, TodoProps } from "@/utils/types";
 import { todoData } from "./todoData";
 import Pagination from "@/components/Pagination"
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
 const Todo = () => {
   const [addItemClicked, setAddItemClicked] = useState<boolean>(false);
   const [todos, setTodos] = useState<TodoProps[]>(todoData);
   const [displayedTodos, setDisplayedTodos] = useState<TodoProps[]>([]);
+
+
   const createNewTodo = (newTask: string, priorityLevel : Priority) => {
     const newTodo: TodoProps = {
       id: Date.now(),
@@ -29,7 +34,8 @@ const Todo = () => {
   };
 
   return (
-    <div className="container border border-lightGray">
+    <DndProvider backend={HTML5Backend}>
+    <div className="container border border-lightGray rounded-sm shadow-md">
       {/* header section */}
       <div className="header flex justify-between border-b-[1px] border-lightGray border-collapse px-5 py-2.5">
       <div className="header flex flex-row gap-2 place-items-center ">
@@ -41,7 +47,7 @@ const Todo = () => {
           dataPerPage={5}
           onPaginate={(paginatedData) => setDisplayedTodos(paginatedData)}
         />
-      </div>
+      </div>    
       {/* body section */}
       <div>
         <List
@@ -55,6 +61,7 @@ const Todo = () => {
         />
       </div>
     </div>
+    </DndProvider>
   );
 };
 
