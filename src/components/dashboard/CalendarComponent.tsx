@@ -112,7 +112,7 @@ const CalendarComponent: React.FC = () => {
 
 
   return (
-    <div className="w-full p-4 shadow-md border-2 border-lightGray lg:ml-4 mt-4">
+    <div className="w-full p-4 shadow-md border-2 border-lightGray">
       <div className="h-[65vh] w-full">
         <BigCalendar
           localizer={localizer}
