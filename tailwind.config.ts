@@ -51,12 +51,12 @@ export default {
           lightGreen: '#DCFCE7',
           lightYellow: '#FEF9C3',
           lightRed: '#FEE2E2',
-          listGray: '#f8f9fa',   // F3F4F6
+          listGray: '#F3F4F6',
           darkBlue:'#2563EB',
           black: '#212529',
           darkGray: '#8D8D8D',
           darkerGray: '#4B5563',
-          textGray: '#1F2937',  //495057
+          textGray: '#1F2937',
           white: '#fff',
           gray: '#A5A5A5',
           lightGray: '#E0E0E0',

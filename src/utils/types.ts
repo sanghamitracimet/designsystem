@@ -32,8 +32,6 @@ export interface TaskItemProps {
   todo: TodoProps;
   editTaskHandler: (id: number) => void;
   taskCompleteHandler: (id: number) => void;
-  setDragId: React.Dispatch<React.SetStateAction<number | undefined>>;
-  setDropId: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
 export interface TaskFormProps {

@@ -36,7 +36,7 @@ const Pagination = <T,>({ data, dataPerPage, onPaginate }: PaginationProps<T>)=>
       <button
         onClick={() => currentPage > 1 && onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className={`hover:bg-listGray border-[1px] border-lightGray p-2 text-[12px] rounded-l-md text-darkBlue ${currentPage === 1 ? " cursor-not-allowed": ""}`}
+        className={`hover:bg-lightGray border-[1px] border-offBlue p-2 text-[12px] rounded-l-md text-darkBlue ${currentPage === 1 ? " cursor-not-allowed": ""}`}
       >
         {'<<'}
       </button>
@@ -46,7 +46,7 @@ const Pagination = <T,>({ data, dataPerPage, onPaginate }: PaginationProps<T>)=>
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          className={`hover:bg-listGray border-[1px] border-lightGray  py-2 px-2.5 text-[12px] text-darkBlue  ${
+          className={`hover:bg-listGray border-[1px] border-offBlue  py-2 px-2.5 text-[12px] text-darkBlue  ${
             page === currentPage
               ? "bg-listGray"
               : ""
@@ -62,7 +62,7 @@ const Pagination = <T,>({ data, dataPerPage, onPaginate }: PaginationProps<T>)=>
           currentPage < totalPageCount && onPageChange(currentPage + 1)
         }
         disabled={currentPage === totalPageCount}
-        className={`hover:bg-listGray border-[1px] border-lightGray  p-2 text-[12px] rounded-r-md text-darkBlue ${currentPage === totalPageCount ? " cursor-not-allowed": ""}`}>
+        className={`hover:bg-listGray border-[1px] border-offBlue  p-2 text-[12px] rounded-r-md text-darkBlue ${currentPage === totalPageCount ? " cursor-not-allowed": ""}`}>
          {'>>'}
       </button>
     </div>
