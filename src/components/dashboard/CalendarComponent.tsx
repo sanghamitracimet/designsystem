@@ -1,118 +1,246 @@
 import React, { useState } from 'react';
+import moment from 'moment';
+import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+
+const localizer = momentLocalizer(moment);
+
+type Event = {
+  id: number;
+  title: string;
+  start: Date;
+  end: Date;
+};
 
 const CalendarComponent: React.FC = () => {
-  // Get the current date and initialize state for the current month and year
-  const currentDate = new Date();
-  const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth());
-  const [currentYear, setCurrentYear] = useState(currentDate.getFullYear());
+  const [events, setEvents] = useState<Event[]>([]);
+  const [nextEventId, setNextEventId] = useState(1);
 
-  // Function to go to the previous month
-  const goToPreviousMonth = () => {
-    if (currentMonth === 0) {
-      setCurrentMonth(11); // December
-      setCurrentYear(currentYear - 1);
-    } else {
-      setCurrentMonth(currentMonth - 1);
-    }
+  const [showModal, setShowModal] = useState(false);
+  const [editingEvent, setEditingEvent] = useState<Event | null>(null);
+
+  const [newEvent, setNewEvent] = useState({
+    title: '',
+    start: '',
+    end: '',
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setNewEvent({
+      ...newEvent,
+      [name]: value,
+    });
   };
 
-  // Function to go to the next month
-  const goToNextMonth = () => {
-    if (currentMonth === 11) {
-      setCurrentMonth(0); // January
-      setCurrentYear(currentYear + 1);
-    } else {
-      setCurrentMonth(currentMonth + 1);
-    }
-  };
-
-  // Get the first day of the month and how many days are in the month
-  const getMonthDetails = () => {
-    const firstDay = new Date(currentYear, currentMonth, 1);
-    const lastDay = new Date(currentYear, currentMonth + 1, 0);
-    const numberOfDays = lastDay.getDate();
-    const startDay = firstDay.getDay(); // Day of the week the month starts on (0 = Sunday, 6 = Saturday)
-    return { numberOfDays, startDay };
-  };
-
-  // Generate the array of days for the calendar
-  const generateCalendarDays = () => {
-    const { numberOfDays, startDay } = getMonthDetails();
-    const days = [];
-    let day = 1;
-
-    // Fill the empty cells for days before the first day of the month
-    for (let i = 0; i < startDay; i++) {
-      days.push(null);
+  const handleAddOrUpdateEvent = () => {
+    if (!newEvent.title || !newEvent.start || !newEvent.end) {
+      alert('Please fill in all fields including date and time');
+      return;
     }
 
-    // Fill the days of the month
-    for (let i = startDay; i < 7 && day <= numberOfDays; i++) {
-      days.push(day++);
+    const startDate = new Date(newEvent.start);
+    const endDate = new Date(newEvent.end);
+
+    if (startDate >= endDate) {
+      alert('End time must be later than start time');
+      return;
     }
 
-    // Continue filling the calendar with remaining weeks
-    while (day <= numberOfDays) {
-      for (let i = 0; i < 7 && day <= numberOfDays; i++) {
-        days.push(day++);
+    const eventObj = {
+      title: newEvent.title,
+      start: startDate,
+      end: endDate,
+      id: editingEvent ? editingEvent.id : nextEventId,
+    };
+
+    if (editingEvent) {
+      if (
+        eventObj.title === editingEvent.title &&
+        eventObj.start.getTime() === editingEvent.start.getTime() &&
+        eventObj.end.getTime() === editingEvent.end.getTime()
+      ) {
+        setShowModal(false);
+        return;
       }
+
+      setEvents(events.map((event) => (event.id === editingEvent.id ? eventObj : event)));
+      setEditingEvent(null);
+    } else {
+      setEvents([...events, eventObj]);
+      setNextEventId(nextEventId + 1);
     }
 
-    return days;
+    setShowModal(false);
+    setNewEvent({
+      title: '',
+      start: '',
+      end: '',
+    });
   };
 
-  // Get the month and year names for the header
-  const getMonthName = () => {
-    const monthNames = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
-    ];
-    return monthNames[currentMonth];
+  const handleDateClick = ({ start }: { start: Date }) => {
+    if (!showModal) {
+      setNewEvent({
+        title: '',
+        start: '',
+        end: '',
+      });
+      setShowModal(true);
+      setEditingEvent(null);
+    }
   };
+
+  const handleEventClick = (event: Event) => {
+    setEditingEvent(event);
+    setNewEvent({
+      title: event.title,
+      start: event.start.toISOString(),
+      end: event.end.toISOString(),
+    });
+    setShowModal(true);
+  };
+
+  const handleDeleteEvent = (eventId: number) => {
+    setEvents(events.filter((event) => event.id !== eventId));
+    setShowModal(false);
+  };
+
+  const isSaveButtonDisabled = !newEvent.title || !newEvent.start || !newEvent.end;
+
 
   return (
-    <div className="max-w-lg mx-auto p-2 bg-white rounded-lg shadow-md border-1 border-teal">
-      {/* Header with Month and Year */}
-      <div className="flex justify-between items-center mb-6">
-        <button
-          onClick={goToPreviousMonth}
-          className="px-4 py-2 bg-primary-sidebar text-black rounded-lg hover:bg-primary-sidebar"
-        >
-          Previous
-        </button>
-        <h2 className="text-xl font-semibold">
-          {getMonthName()} {currentYear}
-        </h2>
-        <button
-          onClick={goToNextMonth}
-          className="px-4 py-2 bg-primary-sidebar text-black rounded-lg hover:bg-primary-sidebar"
-        >
-          Next
-        </button>
+    <div className="w-full p-4 shadow-md border-2 border-lightGray ml-4">
+      <div className="h-[65vh] w-full">
+        <BigCalendar
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          onSelectSlot={handleDateClick}
+          selectable={true}
+          onSelectEvent={handleEventClick}
+          className="h-[60vh] w-full"
+          components={{
+            toolbar: ({ label, onNavigate, onView }) => (
+              <div className="flex justify-between items-center p-2 bg-lightGray">
+                <div className="flex space-x-1">
+                  <button
+                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    onClick={() => onNavigate('TODAY')}
+                  >
+                    Today
+                  </button>
+                  <button
+                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    onClick={() => onNavigate('PREV')}
+                  >
+                    Back
+                  </button>
+                  <button
+                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    onClick={() => onNavigate('NEXT')}
+                  >
+                    Next
+                  </button>
+                </div>
+
+                <div className="text-sm font-semibold text-black">{label}</div>
+
+                <div className="flex space-x-2">
+                  <button
+                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    onClick={() => onView('month')}
+                  >
+                    Month
+                  </button>
+                  <button
+                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    onClick={() => onView('week')}
+                  >
+                    Week
+                  </button>
+                  <button
+                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    onClick={() => onView('day')}
+                  >
+                    Day
+                  </button>
+                  <button
+                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    onClick={() => onView('agenda')}
+                  >
+                    Agenda
+                  </button>
+                </div>
+              </div>
+            ),
+          }}
+          formats={{
+            dayHeaderFormat: 'ddd DD',
+          }}
+        />
+
       </div>
 
-      {/* Calendar Days Header */}
-      <div className="grid grid-cols-7 gap-2 text-center font-semibold mb-2">
-        <div className="text-darkGray">Sun</div>
-        <div className="text-darkGray">Mon</div>
-        <div className="text-darkGray">Tue</div>
-        <div className="text-darkGray">Wed</div>
-        <div className="text-darkGray">Thu</div>
-        <div className="text-darkGray">Fri</div>
-        <div className="text-darkGray">Sat</div>
-      </div>
-
-      {/* Calendar Days */}
-      <div className="grid grid-cols-7 gap-2 text-center">
-        {generateCalendarDays().map((day, index) => (
-          <div
-            key={index}
-            className={`p-4 rounded-lg cursor-pointer ${day ? 'bg-gray-100 hover:bg-lightGray' : 'bg-transparent'}`}
-          >
-            {day && <span>{day}</span>}
+      {showModal && (
+        <div className="fixed inset-0 bg-gray bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 className="text-xl font-semibold mb-4">
+              {editingEvent ? 'Edit Event' : 'Add Event'}
+            </h2>
+            <div className="mb-4">
+              <input
+                type="text"
+                name="title"
+                value={newEvent.title}
+                onChange={handleInputChange}
+                placeholder="Event Title"
+                className="border rounded outline-none p-2 w-full mb-2"
+              />
+              <input
+                type="datetime-local"
+                required
+                name="start"
+                value={editingEvent ? moment(editingEvent.start).format('YYYY-MM-DDTHH:mm') : newEvent.start}
+                onChange={handleInputChange}
+                className="border rounded outline-none p-2 w-full mb-2"
+              />
+              <input
+                type="datetime-local"
+                required
+                name="end"
+                value={editingEvent ? moment(editingEvent.end).format('YYYY-MM-DDTHH:mm') : newEvent.end}
+                onChange={handleInputChange}
+                className="border rounded outline-none p-2 w-full"
+              />
+            </div>
+            <div className="flex justify-between">
+              <button
+                onClick={handleAddOrUpdateEvent}
+                className={`bg-blue text-white p-2 rounded w-1/2 mr-2 ${isSaveButtonDisabled ? 'bg-gray' : ''}`}
+                disabled={isSaveButtonDisabled}
+              >
+                {editingEvent ? 'Update Event' : 'Add Event'}
+              </button>
+              <button
+                onClick={() => setShowModal(false)}
+                className="bg-gray text-white p-2 rounded w-1/2"
+              >
+                Cancel
+              </button>
+            </div>
+            {editingEvent && (
+              <button
+                onClick={() => handleDeleteEvent(editingEvent.id)}
+                className="bg-red text-white p-2 rounded mt-4 w-full"
+              >
+                Delete Event
+              </button>
+            )}
           </div>
-        ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
