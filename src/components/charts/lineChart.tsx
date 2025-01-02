@@ -24,7 +24,7 @@ const LineChart = () => {
             type="line"
             data={lineChartData}
             options={noGridOptions}
-            className="h-64 p-2.5 "
+            className="h-64 p-2.5"
           />
         )}
       </div>
