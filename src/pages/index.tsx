@@ -1,25 +1,24 @@
 import DashboardCards from "@/components/dashboard/DashboardCards";
 import ChartTab from "@/components/dashboard/ChartTab";
-import CalendarComponent from "@/components/dashboard/Calendar";
 import Todo from "@/components/todo/Todo";
+import CalendarComponent from "@/components/dashboard/CalendarComponent";
+import SalesGraph from "@/components/dashboard/SalesGraph";
 
 const Home = () => {
   return (
-    <div className="flex flex-grow flex-col p-4">
-      {/* Dashboard Cards */}
+    <div className="flex flex-grow flex-col p-4 mt-8">
       <DashboardCards />
-      <div className="w-full sm:w-2/3 md:w-full lg:w-full mt-6 ">
-        <ChartTab />
-      </div>
-      {/* Responsive Layout */}
-      <div className="mt-6 flex flex-wrap gap-4">
-        {/* ChartTab */}
-        <div className="w-full md:w-1/2 sm:w-full"> 
+      <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div className="w-full">
+          <ChartTab />
+        </div>
+        <div className="w-full">
+          <SalesGraph />
+        </div>
+        <div className="w-full">
           <Todo />
         </div>
-
-        {/* CalendarComponent */}
-        <div className="md:w-[45%] sm:w-[100%] lg:w-[45%]">
+        <div className="w-full">
           <CalendarComponent />
         </div>
       </div>
