@@ -101,8 +101,6 @@ const CalendarComponent = () => {
             format(date, "yyyy-MM-dd") === format(selectedDate, "yyyy-MM-dd");
           const hasEvent = getEventsForDate(date).length > 0;
 
-          console.log(hasEvent);
-
           if (isSelectedDate) {
             return "flex-1 border-2 border-gray bg-blue text-white";
           }

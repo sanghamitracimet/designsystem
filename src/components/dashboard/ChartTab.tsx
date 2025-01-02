@@ -7,7 +7,7 @@ const ChartTab: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"area" | "donut">("area");
 
   return (
-    <div className="p-4 w-full shadow-md">
+    <div className="pt-2 pb-2 w-full shadow-md border-2 border-lightGray">
       <div className="flex justify-between mb-2 border-b-2 border-b-lightGray p-2">
         <div className="flex justify-between gap-2">
           <BiSolidPieChartAlt2 className="w-6 h-6" />
@@ -16,24 +16,21 @@ const ChartTab: React.FC = () => {
         <div className="flex justify-around">
           <button
             onClick={() => setActiveTab("area")}
-            className={`px-4 py-2 rounded-md text-sm font-semibold ${
-              activeTab === "area" ? "bg-blue text-white" : "bg-white"
-            }`}
+            className={`px-4 py-2 rounded-md text-sm font-semibold ${activeTab === "area" ? "bg-blue text-white" : "bg-white"
+              }`}
           >
             Area
           </button>
           <button
             onClick={() => setActiveTab("donut")}
-            className={`px-4 py-2 rounded-md text-sm font-semibold ${
-              activeTab === "donut" ? "bg-blue text-white" : "bg-white"
-            }`}
+            className={`px-4 py-2 rounded-md text-sm font-semibold ${activeTab === "donut" ? "bg-blue text-white" : "bg-white"
+              }`}
           >
             Donut
           </button>
         </div>
       </div>
 
-      {/* Chart rendering based on activeTab */}
       <div className="relative">
         {activeTab === "area" ? (
           <div className="w-full">
