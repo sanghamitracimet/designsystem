@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import { GrNext } from "react-icons/gr";
+import { GrPrevious } from "react-icons/gr";
 
 const localizer = momentLocalizer(moment);
 
@@ -110,7 +112,7 @@ const CalendarComponent: React.FC = () => {
 
 
   return (
-    <div className="w-full p-4 shadow-md border-2 border-lightGray ml-4">
+    <div className="w-full p-4 shadow-md border-2 border-lightGray lg:ml-4 mt-4">
       <div className="h-[65vh] w-full">
         <BigCalendar
           localizer={localizer}
@@ -123,55 +125,38 @@ const CalendarComponent: React.FC = () => {
           className="h-[60vh] w-full"
           components={{
             toolbar: ({ label, onNavigate, onView }) => (
-              <div className="flex justify-between items-center p-2 bg-lightGray">
-                <div className="flex space-x-1">
+              <div className="flex flex-row justify-between items-center p-2 bg-lightGray">
+                <div className="flex flex-wrap space-x-1">
                   <button
-                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
-                    onClick={() => onNavigate('TODAY')}
-                  >
-                    Today
-                  </button>
-                  <button
-                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
-                    onClick={() => onNavigate('PREV')}
-                  >
-                    Back
-                  </button>
-                  <button
-                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
-                    onClick={() => onNavigate('NEXT')}
-                  >
-                    Next
-                  </button>
-                </div>
-
-                <div className="text-sm font-semibold text-black">{label}</div>
-
-                <div className="flex space-x-2">
-                  <button
-                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    className="text-sm p-1 bg-white text-black rounded-md shadow hover:bg-listGray"
                     onClick={() => onView('month')}
                   >
                     Month
                   </button>
                   <button
-                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
-                    onClick={() => onView('week')}
-                  >
-                    Week
-                  </button>
-                  <button
-                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
-                    onClick={() => onView('day')}
-                  >
-                    Day
-                  </button>
-                  <button
-                    className="p-2 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    className="text-sm p-1 bg-white text-black rounded-md shadow hover:bg-listGray"
                     onClick={() => onView('agenda')}
                   >
                     Agenda
                   </button>
+                </div>
+
+                <div className="text-sm font-semibold text-black mb-2 md:mb-0">{label}</div>
+
+                
+                <div className="flex flex-wrap space-x-1 mb-2 md:mb-0">
+                  <button
+                    className="text-sm p-1 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    onClick={() => onNavigate('TODAY')}
+                  >
+                    Today
+                  </button>
+                  <div className='p-1 bg-white rounded text-center'>
+                    <GrPrevious className="w-4 h-4 text-black opacity-50 font-bold" onClick={() => onNavigate('PREV')} />
+                  </div>
+                  <div className='p-1 bg-white rounded text-center'>
+                    <GrNext className="w-4 h-4 text-black opacity-50 font-bold" onClick={() => onNavigate('NEXT')} />
+                  </div>
                 </div>
               </div>
             ),
@@ -180,6 +165,7 @@ const CalendarComponent: React.FC = () => {
             dayHeaderFormat: 'ddd DD',
           }}
         />
+
 
       </div>
 

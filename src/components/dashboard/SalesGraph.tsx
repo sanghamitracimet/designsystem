@@ -7,7 +7,7 @@ const SalesGraph: React.FC = () => {
 
   return (
     <div className="p-4 w-full shadow-md border-2 border-lightGray ml-4">
-      <div className="flex justify-between mb-2 border-b-2 border-b-lightGray p-2">
+      <div className="flex justify-between mb-2 border-b-2 border-b-lightGray">
         <div className="flex justify-between gap-2">
           <FaTable className="w-6 h-6" />
           <h3>Sales Graph</h3>
@@ -20,7 +20,7 @@ const SalesGraph: React.FC = () => {
               options={noGridOptions}
               type="line"
               data={lineChartData}
-              className="w-full p-2 h-60 bg-white"
+              className="w-full p-2.5 h-70 bg-white"
             />
           </div>
         </div>

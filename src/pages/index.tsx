@@ -6,7 +6,7 @@ import SalesGraph from "@/components/dashboard/SalesGraph";
 
 const Home = () => {
   return (
-    <div className="flex flex-grow flex-col p-4">
+    <div className="flex flex-grow flex-col p-4 mt-8">
       <DashboardCards />
       <div className="mt-6 flex flex-wrap">
         <div className="w-full md:w-1/2 sm:w-full">
@@ -20,7 +20,7 @@ const Home = () => {
         <div className="w-full md:w-1/2 sm:w-full">
           <Todo />
         </div>
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2 sm:w-full">
           <CalendarComponent />
         </div>
       </div>
