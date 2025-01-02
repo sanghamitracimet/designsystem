@@ -9,24 +9,12 @@ import React from "react";
 const chart = () => {
   return (
     <div className="grid w-full box-border grid-cols-1 sm:grid-cols-2 gap-4 p-10">
-      <div className="w-full">
         <AreaChart />
-      </div>
-      <div className="w-full">
         <LineChart />
-      </div>
-      <div className="w-full">
         <DonutChart />
-      </div>
-      <div className="w-full">
-        <BarChart />
-      </div>
-      <div className="w-full">
         <PieCharts />
-      </div>
-      <div className="w-full">
+        <BarChart />
         <StackedChart />
-        </div>
     </div>
   );
 };

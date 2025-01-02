@@ -1,12 +1,15 @@
-// src/components/SingleDashboardCard.tsx
 import React from 'react';
 
-// Define the props interface for SingleDashboardCard
 interface SingleDashboardCardProps {
   number: number;
   subheading: string;
+<<<<<<< HEAD
   icon: React.ElementType;  // The first icon is a React component
   icon2: React.ElementType; // The second icon is also a React component
+=======
+  icon: React.ComponentType;
+  icon2: React.ComponentType;
+>>>>>>> 40aeb4b715abce6d997640aba3b8a62ccd755c24
   backgroundColor: string;
 }
 
@@ -19,13 +22,11 @@ const SingleDashboardCard: React.FC<SingleDashboardCardProps> = ({ number, subhe
           <p className="text-sm text-lightGray">{subheading}</p>
         </div>
         <div>
-          {/* Render the first icon */}
           <Icon className="w-10 h-10 text-black opacity-50" />
         </div>
       </div>
       <div className="pl-6 pr-6 pt-1 pb-1 flex justify-between items-center mt-4 bg-black opacity-45">
         <p className="text-sm text-lightGray">More Info</p>
-        {/* Render the second icon */}
         <Icon2 className="w-4 h-4 text-lightGray" />
       </div>
     </div>

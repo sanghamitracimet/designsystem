@@ -1,30 +1,30 @@
-export interface TodoProps {
-  id: number;
-  task: string;
-  isCompleted: boolean;
-  priority: Priority;
+export interface TodoProps{
+  id: number,
+  task: string,
+  isCompleted: boolean,
+  priority: Priority
 }
 
 export type Priority = "low" | "medium" | "high";
 
-export interface ActionBtnProps {
-  icon: React.ElementType;
-  heading: string;
-  onClick?: () => void;
+export interface ActionBtnProps{
+  icon: React.ElementType,
+  heading: string
+  onClick?: ()=>void;
 }
 
-export interface ListProps {
+export interface ListProps{
   setAddItemClicked: React.Dispatch<React.SetStateAction<boolean>>;
-  addItemClicked: boolean;
-  createNewTodo: (taskName: string, priority: Priority) => void;
+  addItemClicked: boolean
+  createNewTodo: (taskName: string, priority: Priority) => void
   todos: TodoProps[];
   setTodos: React.Dispatch<React.SetStateAction<TodoProps[]>>;
-  taskCompleteHandler: (id: number) => void;
-  originalTodos: TodoProps[];
+  taskCompleteHandler: (id: number)=>void;
+  originalTodos:TodoProps[]
 }
 
 export interface BadgeProps {
-  level: "high" | "info" | "low" | "medium" | "done";
+  level: "high" | "info" | "low" | "medium" | "done" ;
   label: string;
 }
 
@@ -36,26 +36,23 @@ export interface TaskItemProps {
   setDropId: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
-export interface TaskFormProps {
+export interface TaskFormProps{
   taskName: string;
-  setTaskName: React.Dispatch<React.SetStateAction<string>>;
-  priority: Priority;
-  setPriority: React.Dispatch<React.SetStateAction<"high" | "low" | "medium">>;
-  error: boolean;
-  setError: React.Dispatch<React.SetStateAction<boolean>>;
-  addItemClicked: boolean;
-  createNewTodo: (
-    taskName: string,
-    priority: "low" | "medium" | "high"
-  ) => void;
-  setAddItemClicked: React.Dispatch<React.SetStateAction<boolean>>;
-  handleSaveTask: () => void;
+setTaskName: React.Dispatch<React.SetStateAction<string>>
+priority: Priority;
+setPriority: React.Dispatch<React.SetStateAction<"high" | "low" | "medium">>
+error: boolean
+setError:React.Dispatch<React.SetStateAction<boolean>>
+addItemClicked : boolean
+createNewTodo: (taskName: string, priority: "low" | "medium" | "high") => void
+setAddItemClicked: React.Dispatch<React.SetStateAction<boolean>>;
+handleSaveTask: ()=> void
 }
 
 export type PaginationProps<T> = {
-  data: T[]; // generic array
-  dataPerPage: number;
-  onPaginate: (paginatedData: T[]) => void;
+data: T[]; // generic array
+dataPerPage: number;
+onPaginate: (paginatedData: T[]) => void;
 };
 
 export interface TableHeadings {
@@ -94,14 +91,15 @@ export interface DropdownProps {
   buttonLabel: string; // Label for the dropdown button
 }
 
-export interface SearchBarProps {
-  tableDetails: TableDetails;
-  setTableDetails: React.Dispatch<React.SetStateAction<TableDetails>>;
+export interface SearchBarProps{
+ tableDetails: TableDetails; 
+ setTableDetails: React.Dispatch<React.SetStateAction<TableDetails>>;
 }
 
- export interface BtnProps {
+export interface BtnProps {
   readonly title: string;
   readonly textColor: string;
   readonly bgColor: string;
   readonly classNames?: readonly string[]; // Optional array of additional class names
 }
+
