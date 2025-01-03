@@ -1,11 +1,11 @@
 import { FaCheck, FaPlus } from "react-icons/fa";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import TaskForm from "./TaskForm";
 import TaskItem from "./TaskItem";
 import { ListProps } from "@/utils/types";
 import ActionBtn from "../buttons/ActionBtn";
 import { useDrop } from "react-dnd";
- 
+
 const List: React.FC<ListProps> = ({
   setAddItemClicked,
   addItemClicked,
@@ -21,7 +21,6 @@ const List: React.FC<ListProps> = ({
   const [isEditingId, setIsEditingId] = useState<null | number>(null);
   const [dragId, setDragId] = useState<number | undefined>();
   const [dropId, setDropId] = useState<number | undefined>();
- 
 
   const editTaskHandler = (id: number) => {
     const taskToEdit = todos.find((todo) => todo.id === id);
@@ -51,13 +50,15 @@ const List: React.FC<ListProps> = ({
       } else {
         createNewTodo(taskName, priority);
       }
-      setTaskName("");
-      setPriority("low");
-      setError(false);
-      setIsEditingId(null);
+      clearInput();
     }
   };
- 
+  const clearInput = () => {
+    setTaskName("");
+    setPriority("low");
+    setError(false);
+    setIsEditingId(null);
+  };
   const moveTasks = (draggedId: number, targetId: number) => {
     const draggedIndex = todos.findIndex((todo) => todo.id === draggedId);
     const targetIndex = todos.findIndex((todo) => todo.id === targetId);
@@ -78,8 +79,7 @@ const List: React.FC<ListProps> = ({
   useEffect(() => {
     moveTasks(dragId, dropId);
   }, [dragId, dropId]);
- 
- 
+
   return (
     <>
       <div
@@ -88,7 +88,7 @@ const List: React.FC<ListProps> = ({
         }}
         className={`${
           isOver ? "bg-gray-100" : ""
-        } listitem flex flex-col gap-2 p-2 rounded-md shadow-sm justify-between `}
+        } flex flex-col gap-2 p-2 rounded-md shadow-sm`}
       >
         {todos?.map((todo) =>
           todo.id === isEditingId ? (
@@ -102,8 +102,11 @@ const List: React.FC<ListProps> = ({
               setError={setError}
               addItemClicked={addItemClicked}
               createNewTodo={createNewTodo}
-              setAddItemClicked={setAddItemClicked}
               handleSaveTask={handleSaveTask}
+              handleCancelTask={() => {
+                setAddItemClicked(false);
+                clearInput();
+              }}
             />
           ) : (
             <div key={todo.id}>
@@ -117,7 +120,7 @@ const List: React.FC<ListProps> = ({
             </div>
           )
         )}
- 
+
         {addItemClicked && (
           <TaskForm
             taskName={taskName}
@@ -130,10 +133,14 @@ const List: React.FC<ListProps> = ({
             createNewTodo={createNewTodo}
             setAddItemClicked={setAddItemClicked}
             handleSaveTask={handleSaveTask}
+            handleCancelTask={() => {
+              setAddItemClicked(false);
+              clearInput();
+            }}
           />
         )}
       </div>
-      <div className="footer bg-listGray flex justify-end px-2.5 py-2.5 m-0">
+      <div className="bg-listGray flex justify-end px-2.5 py-2.5 ">
         {addItemClicked || isEditingId ? (
           <ActionBtn
             icon={FaCheck}
@@ -151,5 +158,5 @@ const List: React.FC<ListProps> = ({
     </>
   );
 };
- 
+
 export default List;

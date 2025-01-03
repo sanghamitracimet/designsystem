@@ -2,6 +2,7 @@
 
 import { Priority, TaskFormProps } from "@/utils/types";
 import { useRef, useEffect } from "react";
+import { ImCross } from "react-icons/im";
 
 
 
@@ -13,21 +14,23 @@ const TaskForm : React.FC<TaskFormProps> = ({
   error,
   addItemClicked,
   handleSaveTask,
+  handleCancelTask
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
-
+  console.log(typeof handleCancelTask)
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
   }, [addItemClicked]);
 
-  useEffect(() => {
 
+  useEffect(() => {
+    
   }, [setTaskName, setPriority]);
   
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col">
       <div className="flex items-center gap-2">
         <input
           type="text"
@@ -94,6 +97,7 @@ const TaskForm : React.FC<TaskFormProps> = ({
               Low
             </label>
           </div>
+          <ImCross color="red" className="cursor-pointer" onClick={()=>handleCancelTask()}/>
         </div>
       </div>
       {error && (
