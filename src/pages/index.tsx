@@ -16,12 +16,11 @@ const Home = () => {
           <SalesGraph />
         </div>
         <div className="w-full">
-          <Todo />
-        </div>
-        <div className="w-full">
           <CalendarComponent />
         </div>
-        {/* main merge */}
+        <div className="w-full">
+          <Todo />
+        </div>
         
       </div>
     </div>
