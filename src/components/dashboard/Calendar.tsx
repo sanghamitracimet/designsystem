@@ -1,8 +1,9 @@
-import { useState } from "react";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import { format } from "date-fns";
-import Modal from "react-modal";
+import { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import Modal from 'react-modal';
+import { format } from 'date-fns';
+
 type Event = {
   date: Date;
   title: string;
@@ -13,8 +14,8 @@ const CalendarComponent = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [events, setEvents] = useState<Event[]>([]);
-  const [eventTitle, setEventTitle] = useState<string>("");
-  const [eventDescription, setEventDescription] = useState<string>("");
+  const [eventTitle, setEventTitle] = useState<string>('');
+  const [eventDescription, setEventDescription] = useState<string>('');
   const [eventBeingEdited, setEventBeingEdited] = useState<Event | null>(null);
 
   const handleDateClick = (date: Date) => {
@@ -26,15 +27,15 @@ const CalendarComponent = () => {
       setEventDescription(event.description);
     } else {
       setEventBeingEdited(null);
-      setEventTitle("");
-      setEventDescription("");
+      setEventTitle('');
+      setEventDescription('');
     }
     setIsModalOpen(true);
   };
 
   const handleSaveEvent = () => {
     if (!eventTitle || !eventDescription) {
-      alert("Please provide both event title and description");
+      alert('Please provide both event title and description');
       return;
     }
 
@@ -47,8 +48,7 @@ const CalendarComponent = () => {
     if (eventBeingEdited) {
       setEvents((prevEvents) =>
         prevEvents.map((event) =>
-          format(event.date, "yyyy-MM-dd") ===
-          format(eventBeingEdited.date, "yyyy-MM-dd")
+          format(event.date, 'yyyy-MM-dd') === format(eventBeingEdited.date, 'yyyy-MM-dd')
             ? newEvent
             : event
         )
@@ -58,8 +58,8 @@ const CalendarComponent = () => {
     }
 
     setIsModalOpen(false);
-    setEventTitle("");
-    setEventDescription("");
+    setEventTitle('');
+    setEventDescription('');
     setEventBeingEdited(null);
   };
 
@@ -67,28 +67,22 @@ const CalendarComponent = () => {
     if (eventBeingEdited) {
       setEvents((prevEvents) =>
         prevEvents.filter(
-          (event) =>
-            format(event.date, "yyyy-MM-dd") !==
-            format(eventBeingEdited.date, "yyyy-MM-dd")
+          (event) => format(event.date, 'yyyy-MM-dd') !== format(eventBeingEdited.date, 'yyyy-MM-dd')
         )
       );
       setIsModalOpen(false);
-      setEventTitle("");
-      setEventDescription("");
+      setEventTitle('');
+      setEventDescription('');
       setEventBeingEdited(null);
     }
   };
 
   const getEventForDate = (date: Date) => {
-    return events.find(
-      (event) => format(event.date, "yyyy-MM-dd") === format(date, "yyyy-MM-dd")
-    );
+    return events.find((event) => format(event.date, 'yyyy-MM-dd') === format(date, 'yyyy-MM-dd'));
   };
 
   const getEventsForDate = (date: Date) => {
-    return events.filter(
-      (event) => format(event.date, "yyyy-MM-dd") === format(date, "yyyy-MM-dd")
-    );
+    return events.filter((event) => format(event.date, 'yyyy-MM-dd') === format(date, 'yyyy-MM-dd'));
   };
 
   return (
@@ -97,19 +91,18 @@ const CalendarComponent = () => {
         onClickDay={handleDateClick}
         value={selectedDate}
         tileClassName={({ date }) => {
-          const isSelectedDate =
-            format(date, "yyyy-MM-dd") === format(selectedDate, "yyyy-MM-dd");
+          const isSelectedDate = format(date, 'yyyy-MM-dd') === format(selectedDate, 'yyyy-MM-dd');
           const hasEvent = getEventsForDate(date).length > 0;
 
           if (isSelectedDate) {
-            return "flex-1 border-2 border-gray bg-blue text-white";
+            return 'flex-1 border-2 border-gray bg-blue text-white';
           }
 
           if (hasEvent) {
-            return "flex-1 border-2 border-gray bg-blue";
+            return 'flex-1 border-2 border-gray bg-blue';
           }
 
-          return "flex-1 border-2 border-gray";
+          return 'flex-1 border-2 border-gray';
         }}
         tileContent={({ date }) => {
           const eventsForDate = getEventsForDate(date);
@@ -120,7 +113,7 @@ const CalendarComponent = () => {
                   <div
                     key={index}
                     className="overflow-hidden text-ellipsis whitespace-nowrap"
-                    style={{ lineHeight: "1.2" }}
+                    style={{ lineHeight: '1.2' }}
                   >
                     {event.title}
                   </div>
@@ -140,9 +133,7 @@ const CalendarComponent = () => {
         overlayClassName="fixed inset-0 bg-black bg-opacity-50"
       >
         <h2 className="text-xl font-bold mb-4 text-black">
-          {eventBeingEdited
-            ? `Edit Event for ${format(selectedDate, "MMMM dd, yyyy")}`
-            : `Add Event for ${format(selectedDate, "MMMM dd, yyyy")}`}
+          {eventBeingEdited ? `Edit Event for ${format(selectedDate, 'MMMM dd, yyyy')}` : `Add Event for ${format(selectedDate, 'MMMM dd, yyyy')}`}
         </h2>
 
         <div className="mb-4">
@@ -177,8 +168,7 @@ const CalendarComponent = () => {
           {eventBeingEdited ? (
             <button
               onClick={handleDeleteEvent}
-              className="px-6 py-2 bg-red text-white rounded-md hover:bg-red"
-            >
+              className="px-6 py-2 bg-red text-white rounded-md hover:bg-red">
               Delete Event
             </button>
           ) : null}

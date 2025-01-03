@@ -5,7 +5,7 @@
       "status": "Approval",
       "customer": "Michael Polansky",
       "estate": "Leipzig, 13199",
-      "total": 18000,
+      "total": 28000,
       "advance": 10000,
       "balance": 8000
     },
@@ -15,7 +15,7 @@
       "customer": "Nicolas Johnson",
       "estate": "Berlin, 14199",
       "total": 15000,
-      "advance": 5000,
+      "advance": 4000,
       "balance": 10000
     },
     {
