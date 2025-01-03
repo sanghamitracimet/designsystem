@@ -113,7 +113,7 @@ const CalendarComponent: React.FC = () => {
 
   return (
     <div className="w-full p-4 shadow-md border-2 border-lightGray">
-      <div className="h-[65vh] w-full">
+      <div className="h-[60vh] w-full">
         <BigCalendar
           localizer={localizer}
           events={events}
@@ -126,15 +126,15 @@ const CalendarComponent: React.FC = () => {
           components={{
             toolbar: ({ label, onNavigate, onView }) => (
               <div className="flex flex-row justify-between items-center p-2 bg-lightGray">
-                <div className="flex flex-wrap gap-2 sm:block">
+                <div className="flex flex-wrap sm:block">
                   <button
-                    className="text-sm bg-blue text-white p-1 rounded-md  hover:bg-blue hover:text-white"
+                    className="text-sm bg-blue text-white p-1 m-1 rounded-md  hover:bg-blue hover:text-white"
                     onClick={() => onView('month')}
                   >
                     Month
                   </button>
                   <button
-                    className="text-sm p-1 bg-blue text-white rounded-md  hover:bg-blue hover:text-white"
+                    className="text-sm bg-blue text-white p-1 m-1 rounded-md  hover:bg-blue hover:text-whit"
                     onClick={() => onView('agenda')}
                   >
                     Agenda
