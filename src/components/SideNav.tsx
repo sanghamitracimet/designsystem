@@ -1,17 +1,19 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { AiFillDashboard, AiOutlineClose } from "react-icons/ai";
 import { BiSolidPieChartAlt2 } from "react-icons/bi";
 import { FaTable } from "react-icons/fa";
 import { LuListTodo } from "react-icons/lu";
 
-const SideNav = ({
-  isOpen,
-  toggleSideNav,
-}: {
-  isOpen: boolean;
-  toggleSideNav: () => void;
-}) => {
-  const activeLink = '/'
+const SideNav = ({ isOpen, toggleSideNav }: { isOpen: boolean; toggleSideNav: () => void; }) => {
+  const [activeLink, setActiveLink] = useState("/");
+  const router = useRouter();
+
+  const handleLinkClick = (href) => {
+    setActiveLink(href);
+    router.push(href);
+  };
   return (
     <aside className="lg:w-56 md:w-0 sm:w-0">
       <button
@@ -25,8 +27,8 @@ const SideNav = ({
         className={`fixed left-0 top-0 w-56 h-screen bg-primarySidebar text-lightGray p-4 z-30 transform ${isOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out lg:translate-x-0 lg:block`}
       >
-        <div className="flex justify-between items-center">
-          <h2 className="text-2xl mb-8">My App</h2>
+        <div className="flex justify-between items-center mb-8 p-2">
+          <h2 className="text-2xl">My App</h2>
           <AiOutlineClose
             className="w-6 h-6 cursor-pointer lg:hidden"
             onClick={toggleSideNav}
@@ -38,7 +40,7 @@ const SideNav = ({
             onClick={() => handleLinkClick("/")}
           >
             <AiFillDashboard className="w-6 h-6" />
-            <Link className="text-md" href="/">
+            <Link className="text-md" href="/" onClick={() => handleLinkClick("/")}>
               Dashboard
             </Link>
           </li>
@@ -48,7 +50,11 @@ const SideNav = ({
             onClick={() => handleLinkClick("/charts")}
           >
             <BiSolidPieChartAlt2 className="w-6 h-6" />
-            <Link className="text-md" href="/charts">
+            <Link
+              className="text-md"
+              href="/charts"
+              onClick={() => handleLinkClick("/charts")}
+            >
               Chart
             </Link>
           </li>
@@ -58,7 +64,11 @@ const SideNav = ({
             onClick={() => handleLinkClick("/data-table")}
           >
             <FaTable className="w-6 h-6" />
-            <Link className="text-md" href="/data-table">
+            <Link
+              className="text-md"
+              href="/data-table"
+              onClick={() => handleLinkClick("/data-table")}
+            >
               Data Table
             </Link>
           </li>
@@ -68,7 +78,11 @@ const SideNav = ({
             onClick={() => handleLinkClick("/ag-grid")}
           >
             <LuListTodo className="w-6 h-6" />
-            <Link className="text-md" href="/ag-grid">
+            <Link
+              className="text-md"
+              href="/ag-grid"
+              onClick={() => handleLinkClick("/ag-grid")}
+            >
               AG Grid
             </Link>
           </li>
