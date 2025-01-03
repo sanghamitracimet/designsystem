@@ -11,8 +11,7 @@ const SideNav = ({
   isOpen: boolean;
   toggleSideNav: () => void;
 }) => {
-
-  const activeLink = "/";
+  const activeLink = '/'
   return (
     <aside className="lg:w-56 md:w-0 sm:w-0">
       <button

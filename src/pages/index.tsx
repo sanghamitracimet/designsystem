@@ -21,6 +21,8 @@ const Home = () => {
         <div className="w-full">
           <CalendarComponent />
         </div>
+        {/* main merge */}
+        
       </div>
     </div>
   );
