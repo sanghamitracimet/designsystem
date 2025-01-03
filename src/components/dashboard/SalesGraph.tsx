@@ -1,4 +1,4 @@
-import React, from "react";
+import React from "react";
 import { FaTable } from "react-icons/fa";
 import ChartComponent from "../charts/chartComponent";
 import { lineChartData, noGridOptions } from "../charts/data";
