@@ -35,16 +35,16 @@ const Todo = () => {
  
   return (
     <DndProvider backend={HTML5Backend}>
-    <div className="container border border-lightGray rounded-sm shadow-md">
+    <div className="border-2 border-lightGray rounded-sm shadow-md">
       {/* header section */}
-      <div className="header flex justify-between border-b-[1px] border-lightGray border-collapse px-5 py-4">
+      <div className=" flex justify-between border-b-[1px] border-lightGray border-collapse px-5 py-2.5">
       <div className="header flex flex-row gap-2 place-items-center ">
         <LiaClipboardListSolid className="headerIcon" />
         <h2 className="headerTitle"> To Do List</h2>
       </div>
       <Pagination
           data={todos}
-          dataPerPage={5}
+          dataPerPage={6}
           onPaginate={(paginatedData) => setDisplayedTodos(paginatedData)}
         />
       </div>    

@@ -5,10 +5,6 @@ import { BtnStatusSelector } from "@/utils/utility";
 import Avatar from "./Avatar";
 import Dropdown from "./DropDown";
 import Button from "./buttons/Button";
-<<<<<<< HEAD
-function ReUsableTable({ tableDetails }: Readonly<ReUsableTableProps>) {
-  const [currentPage, setCurrentPage] = useState(1);
-=======
 import {
   paginateRows,
   calculateTotalPages,
@@ -24,7 +20,6 @@ import { ReUsableTableProps, TableRows } from "@/utils/types";
  */
 function ReUsableTable({ tableDetails }: ReUsableTableProps) {
   const [currentPage, setCurrentPage] = useState(1); // Current page state
->>>>>>> 40aeb4b715abce6d997640aba3b8a62ccd755c24
   const [filteredRows, setFilteredRows] = useState<TableRows[]>(
     tableDetails.tableRows
   ); // Rows after filtering and sorting

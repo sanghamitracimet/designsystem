@@ -128,13 +128,13 @@ const CalendarComponent: React.FC = () => {
               <div className="flex flex-row justify-between items-center p-2 bg-lightGray">
                 <div className="flex flex-wrap space-x-1">
                   <button
-                    className="text-sm p-1 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    className="text-sm bg-blue text-white p-1 rounded-md  hover:bg-blue hover:text-white"
                     onClick={() => onView('month')}
                   >
                     Month
                   </button>
                   <button
-                    className="text-sm p-1 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    className="text-sm p-1 bg-blue text-white rounded-md  hover:bg-blue hover:text-white"
                     onClick={() => onView('agenda')}
                   >
                     Agenda
@@ -146,16 +146,16 @@ const CalendarComponent: React.FC = () => {
                 
                 <div className="flex flex-wrap space-x-1 mb-2 md:mb-0">
                   <button
-                    className="text-sm p-1 bg-white text-black rounded-md shadow hover:bg-listGray"
+                    className="text-sm p-1 bg-blue text-white rounded-md  hover:bg-blue hover:text-white"
                     onClick={() => onNavigate('TODAY')}
                   >
                     Today
                   </button>
-                  <div className='p-1 bg-white rounded text-center'>
-                    <GrPrevious className="w-4 h-4 text-black opacity-50 font-bold" onClick={() => onNavigate('PREV')} />
+                  <div className='p-1 bg-blue text-white rounded text-center hover:bg-blue'>
+                    <GrPrevious className="w-4 h-4 text-white font-bold" onClick={() => onNavigate('PREV')} />
                   </div>
-                  <div className='p-1 bg-white rounded text-center'>
-                    <GrNext className="w-4 h-4 text-black opacity-50 font-bold" onClick={() => onNavigate('NEXT')} />
+                  <div className='p-1 bg-blue text-white rounded text-center hover:bg-blue'>
+                    <GrNext className="w-4 h-4 text-white font-bold" onClick={() => onNavigate('NEXT')} />
                   </div>
                 </div>
               </div>

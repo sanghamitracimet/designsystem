@@ -1,4 +1,4 @@
-import React, from "react";
+import React from "react";
 import { FaTable } from "react-icons/fa";
 import ChartComponent from "../charts/chartComponent";
 import { lineChartData, noGridOptions } from "../charts/data";
@@ -18,7 +18,7 @@ const SalesGraph: React.FC = () => {
           type="line"
           data={lineChartData}
           options={noGridOptions}
-          className="p-2.5 h-72 max-w-screen-sm"
+          className="p-2.5 h-72"
         />
       </div>
     </div>

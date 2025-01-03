@@ -88,7 +88,7 @@ const List: React.FC<ListProps> = ({
         }}
         className={`${
           isOver ? "bg-gray-100" : ""
-        } listitem flex flex-col gap-2 min-w-max p-2 rounded-md shadow-sm`}
+        } listitem flex flex-col gap-2 p-2 rounded-md shadow-sm justify-between `}
       >
         {todos?.map((todo) =>
           todo.id === isEditingId ? (
@@ -133,7 +133,7 @@ const List: React.FC<ListProps> = ({
           />
         )}
       </div>
-      <div className="footer bg-listGray flex justify-end px-2.5 py-4 m-0">
+      <div className="footer bg-listGray flex justify-end px-2.5 py-2.5 m-0">
         {addItemClicked || isEditingId ? (
           <ActionBtn
             icon={FaCheck}
