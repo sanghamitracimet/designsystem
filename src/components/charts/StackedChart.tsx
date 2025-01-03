@@ -23,7 +23,7 @@ const StackedChart = () => {
   };
 
   return (
-    <div className="w-full box-border border-solid rounded shadow-md">
+    <div className={`border-solid rounded ${ visible ? "shadow-md" : ""}  lg:w-full`}>
       <div className="bg-[#003459] px-8 py-1.5 flex rounded-t-md justify-between text-white">
         <h3> Stack Chart </h3>
         <button onClick={() => handleShow()}>
@@ -36,7 +36,7 @@ const StackedChart = () => {
               type="bar"
               data={barChartData}
               options={stackedChartOptions}
-              className="w-full p-2.5 bg-white"
+              className="h-64 p-2.5"
             />
           </div>
       }
