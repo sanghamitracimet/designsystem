@@ -4,6 +4,8 @@ import { AgGridReact, CustomCellRendererProps } from "ag-grid-react";
 import { TableRows } from "@/utils/types";
 import {
   ModuleRegistry,
+  RowSelectionModule ,
+  RowApiModule ,
   ClientSideRowModelModule,
   PaginationModule, // Import the PaginationModule
   ColDef,
@@ -19,7 +21,7 @@ import axios from "axios";
 import Button from "@/components/buttons/Button";
 import { BtnStatusSelector } from "@/utils/utility";
 import Avatar from "@/components/Avatar";
-import { CustomCustomerEditor, CustomStatusEditor } from "./CustomCellEditor";
+import { CustomStatusEditor } from "./CustomStatusEditor";
 
 
 // Register required modules
@@ -32,7 +34,9 @@ ModuleRegistry.registerModules([
   NumberEditorModule,
   CellStyleModule,
   TextEditorModule,
-  ValidationModule
+  ValidationModule,
+  // RowSelectionModule,
+  RowApiModule 
 ]);
 
 const CustomButtonComponent = (props: CustomCellRendererProps) => {
@@ -87,7 +91,7 @@ const DataGrid = () => {
       cellEditor: 'customCustomerEditor',
       sortable: true,
       editable: true,
-      filter: true,
+      filter: "agTextColumnFilter",
       minWidth: 200,
       cellStyle: { textAlign: "center" },
     },
@@ -141,21 +145,22 @@ const DataGrid = () => {
   }, []);
 
   const components = {
-    customCustomerEditor: CustomCustomerEditor,
+    // customCustomerEditor: CustomCustomerEditor,
     customStatusEditor: CustomStatusEditor,
   };
 
+  
+  const updateServerData = (updatedData: TableRows) => {
+    axios
+    .put(`http://localhost:3333/data/${updatedData.id}`, updatedData) // Update specific record
+    .then((res) => console.log("Data updated:", res.data))
+    .catch((error) => console.error("Error updating data:", error));
+  };
+  
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onCellValueChanged = (event: any) => {
     const updatedData = event.data; // The updated row data
     updateServerData(updatedData); // Send update to the server
-  };
-
-  const updateServerData = (updatedData: TableRows) => {
-    axios
-      .put(`http://localhost:3333/data/${updatedData.id}`, updatedData) // Update specific record
-      .then((res) => console.log("Data updated:", res.data))
-      .catch((error) => console.error("Error updating data:", error));
   };
 
   // Function to calculate the dynamic font size and row height
@@ -175,6 +180,8 @@ const DataGrid = () => {
   useEffect(() => {
     calculateFontSizeAndRowHeight();
   }, [rowData]);
+
+  console.log({rowData});
 
   return (
     <div

@@ -44,7 +44,7 @@ const Todo = () => {
       </div>
       <Pagination
           data={todos}
-          dataPerPage={6}
+          dataPerPage={7}
           onPaginate={(paginatedData) => setDisplayedTodos(paginatedData)}
         />
       </div>    
