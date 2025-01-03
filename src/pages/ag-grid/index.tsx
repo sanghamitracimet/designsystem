@@ -4,7 +4,7 @@ import { AgGridReact, CustomCellRendererProps } from "ag-grid-react";
 import { TableRows } from "@/utils/types";
 import {
   ModuleRegistry,
-  RowSelectionModule ,
+
   RowApiModule ,
   ClientSideRowModelModule,
   PaginationModule, // Import the PaginationModule
