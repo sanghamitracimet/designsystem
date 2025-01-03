@@ -8,7 +8,7 @@ import React from "react";
 
 const chart = () => {
   return (
-    <div className="grid w-full box-border grid-cols-1 sm:grid-cols-2 gap-4 p-10">
+    <div className="grid w-full box-border grid-cols-1 sm:grid-cols-2 gap-4 p-0 sm:p-0 md:p-10">
         <AreaChart />
         <LineChart />
         <DonutChart />
