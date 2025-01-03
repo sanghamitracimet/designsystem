@@ -11,6 +11,7 @@ const SideNav = ({
   isOpen: boolean;
   toggleSideNav: () => void;
 }) => {
+  const activeLink = '/'
   return (
     <aside className="lg:w-56 md:w-0 sm:w-0">
       <button
@@ -33,25 +34,40 @@ const SideNav = ({
           />
         </div>
         <ul className="space-y-8">
-          <li className="flex gap-2 items-center">
+          <li
+            className={`flex gap-2 items-center p-2 rounded-lg ${activeLink === "/" ? "bg-darkBlue" : ""}`}
+            onClick={() => handleLinkClick("/")}
+          >
             <AiFillDashboard className="w-6 h-6" />
             <Link className="text-md" href="/">
               Dashboard
             </Link>
           </li>
-          <li className="flex gap-2 items-center">
+
+          <li
+            className={`flex gap-2 items-center p-2 rounded-lg ${activeLink === "/charts" ? "bg-darkBlue" : ""}`}
+            onClick={() => handleLinkClick("/charts")}
+          >
             <BiSolidPieChartAlt2 className="w-6 h-6" />
             <Link className="text-md" href="/charts">
               Chart
             </Link>
           </li>
-          <li className="flex gap-2 items-center">
+
+          <li
+            className={`flex gap-2 items-center p-2 rounded-lg ${activeLink === "/data-table" ? "bg-darkBlue" : ""}`}
+            onClick={() => handleLinkClick("/data-table")}
+          >
             <FaTable className="w-6 h-6" />
             <Link className="text-md" href="/data-table">
               Data Table
             </Link>
           </li>
-          <li className="flex gap-2 items-center">
+
+          <li
+            className={`flex gap-2 items-center p-2 rounded-lg ${activeLink === "/ag-grid" ? "bg-darkBlue" : ""}`}
+            onClick={() => handleLinkClick("/ag-grid")}
+          >
             <LuListTodo className="w-6 h-6" />
             <Link className="text-md" href="/ag-grid">
               AG Grid

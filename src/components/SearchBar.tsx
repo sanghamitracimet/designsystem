@@ -14,7 +14,7 @@ const SearchBar : React.FC<SearchBarProps> = ({ tableDetails, setTableDetails })
   }
 
   return (
-    <div className="flex flex-row place-items-center border border-gray gap-2 rounded-md m-5 mt-0 p-2 shadow-md sm:rounded-lg">
+    <div className="flex flex-row place-items-center border border-gray gap-2 rounded-md m-5 mt-20 p-2 shadow-md sm:rounded-lg">
       <FaSearch />
       <input
         type="text"
