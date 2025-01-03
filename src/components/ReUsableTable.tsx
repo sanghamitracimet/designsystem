@@ -1,5 +1,5 @@
 "use client";
-
+ 
 import { useState, useEffect } from "react";
 import { BtnStatusSelector } from "@/utils/utility";
 import Avatar from "./Avatar";
@@ -13,7 +13,7 @@ import {
   getNextSortDirection,
 } from "@/utils/tableHelpers";
 import { ReUsableTableProps, TableRows } from "@/utils/types";
-
+ 
 /**
  * ReUsableTable component to display a dynamic, paginated, filterable, and sortable table.
  * @param tableDetails - Contains table headings and rows.
@@ -24,11 +24,11 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
     tableDetails.tableRows
   ); // Rows after filtering and sorting
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" }); // Sorting configuration
-
+ 
   const rowsPerPage = 8; // Number of rows per page
   const currentRows = paginateRows(filteredRows, currentPage, rowsPerPage); // Rows to display for the current page
   const totalPages = calculateTotalPages(filteredRows, rowsPerPage); // Total pages based on filtered rows
-
+ 
   /**
    * Handles moving to the previous page.
    * Prevents navigation if already on the first page.
@@ -36,7 +36,7 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
   const goToPreviousPage = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
   };
-
+ 
   /**
    * Handles moving to the next page.
    * Prevents navigation if already on the last page.
@@ -44,7 +44,7 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
   const goToNextPage = () => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
   };
-
+ 
   /**
    * Filters rows based on a selected filter option and value.
    * Resets pagination to the first page after filtering.
@@ -57,7 +57,7 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
     );
     setCurrentPage(1);
   };
-
+ 
   /**
    * Sorts rows by a specific column.
    * Toggles sort direction (ascending/descending) on repeated clicks.
@@ -72,7 +72,7 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
     setFilteredRows(sortRows(filteredRows, key, direction));
     setSortConfig({ key, direction });
   };
-
+ 
   const dropdownItems = [
     {
       options: ["Approval", "Payment", "Sign", "Briefing"], // Options for filtering by status
@@ -85,14 +85,14 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
       filterKey: "estate",
     },
   ];
-
+ 
   /**
    * Updates filtered rows when table data changes.
    */
   useEffect(() => {
     setFilteredRows(tableDetails.tableRows);
   }, [tableDetails.tableRows]);
-
+ 
   return (
     <div className="relative border overflow-x-auto border-gray rounded-md m-5 p-5 shadow-md sm:rounded-lg">
       {/* Filter Dropdowns */}
@@ -116,62 +116,64 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
           />
         </div>
       </div>
-
-      {/* Table */}
-      <table className="w-full text-sm text-left overflow-y-scroll rtl:text-right text-gray-500 dark:text-gray-400 ">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-          <tr>
-            {tableDetails.tableHeadings.map((ele) => (
-              <th
-                scope="col"
-                key={ele.id}
-                className="px-6 py-3 cursor-pointer"
-                onClick={() =>
-                  ["total", "advance", "balance"].includes(
-                    ele.label.toLowerCase()
-                  ) && handleSort(ele.label.toLowerCase() as keyof TableRows)
-                }
-              >
-                {ele.label}
-                {sortConfig.key === ele.label.toLowerCase() &&
-                  (sortConfig.direction === "asc" ? " \u2191" : " \u2193")}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {currentRows.map((ele) => (
-            <tr
-              key={ele.id}
-              className="bg-white border-y overflow-y-scroll border-slate-200 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-            > 
-              <td className="px-6 py-4">{ele.id}</td>
-              <td className="px-6 py-4">
-                <Button
-                  title={ele.status}
-                  textColor="white"
-                  bgColor={BtnStatusSelector(ele.status)}
-                  classNames={["w-20"]} 
-                />
-              </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                <div className="flex justify-start items-center gap-3">
-                  <Avatar src={"https://placehold.co/400x400"} />
-                  <div>{ele.customer}</div>
-                </div>
-              </th>
-              <td className="px-6 py-4">{ele.estate}</td>
-              <td className="px-6 py-4">${ele.total}</td>
-              <td className="px-6 py-4">${ele.advance}</td>
-              <td className="px-6 py-4">${ele.balance}</td>
+ 
+      {/* Table Container */}
+      <div className="overflow-y-auto" style={{ maxHeight: "800px" }}>
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              {tableDetails.tableHeadings.map((ele) => (
+                <th
+                  scope="col"
+                  key={ele.id}
+                  className="px-6 py-3 cursor-pointer"
+                  onClick={() =>
+                    ["total", "advance", "balance"].includes(
+                      ele.label.toLowerCase()
+                    ) && handleSort(ele.label.toLowerCase() as keyof TableRows)
+                  }
+                >
+                  {ele.label}
+                  {sortConfig.key === ele.label.toLowerCase() &&
+                    (sortConfig.direction === "asc" ? " \u2191" : " \u2193")}
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-
+          </thead>
+          <tbody>
+            {currentRows.map((ele) => (
+              <tr
+                key={ele.id}
+                className="bg-white border-y overflow-y-scroll border-slate-200 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+              >
+                <td className="px-6 py-4">{ele.id}</td>
+                <td className="px-6 py-4">
+                  <Button
+                    title={ele.status}
+                    textColor="white"
+                    bgColor={BtnStatusSelector(ele.status)}
+                    classNames={["w-20"]}
+                  />
+                </td>
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  <div className="flex justify-start items-center gap-3">
+                    <Avatar src={"https://placehold.co/400x400"} />
+                    <div>{ele.customer}</div>
+                  </div>
+                </th>
+                <td className="px-6 py-4">{ele.estate}</td>
+                <td className="px-6 py-4">${ele.total}</td>
+                <td className="px-6 py-4">${ele.advance}</td>
+                <td className="px-6 py-4">${ele.balance}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+ 
       {/* Pagination */}
       <div className="flex justify-between items-center mt-4">
         <button
@@ -195,5 +197,6 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
     </div>
   );
 }
-
+ 
 export default ReUsableTable;
+

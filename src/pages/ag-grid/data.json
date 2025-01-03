@@ -2,9 +2,9 @@
   "data": [
     {
       "id": "Dtx1",
-      "status": "Approval",
+      "status": "Payment",
       "customer": "Michael Polansky",
-      "estate": "Leipzig, 13199",
+      "estate": "Leipzig, 131",
       "total": 18000,
       "advance": 10000,
       "balance": 8000
@@ -14,7 +14,7 @@
       "status": "Payment",
       "customer": "Nicolas Johnson",
       "estate": "Berlin, 14199",
-      "total": 15000,
+      "total": 15001,
       "advance": 5000,
       "balance": 10000
     },
