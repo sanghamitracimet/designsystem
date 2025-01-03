@@ -41,9 +41,9 @@ const TaskItem : React.FC<TaskItemProps>= ({
     onDragCapture={()=> getDragId(todo.id)}  
     onDropCapture={()=>getTargetId(todo.id)}
     key={todo.id}
-    className={`group flex items-center list justify-between p-2 bg-listGray border-l-2 border-darkGray text-textGray ${isDragging ? 'opacity-50': 'opacity-100'}`}
+    className={`group flex justify-between p-2 bg-listGray border-l-2 border-darkGray text-textGray ${isDragging ? 'opacity-50': 'opacity-100'}`}
   >
-    <div className="flex  items-center gap-2"     >
+    <div className="flex items-center gap-2">
       <RxDragHandleDots2 size={24} className="text-darkerGray cursor-move" />
       <input
         type="checkbox"
@@ -66,7 +66,7 @@ const TaskItem : React.FC<TaskItemProps>= ({
       />
     </div>
     <button
-      className="invisible  text-red group-hover:visible pl-20"
+      className="invisible  text-red group-hover:visible"
       onClick={() => editTaskHandler(todo.id)}
     >
       <FaEdit />
