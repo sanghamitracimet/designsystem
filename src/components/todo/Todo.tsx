@@ -35,7 +35,7 @@ const Todo = () => {
  
   return (
     <DndProvider backend={HTML5Backend}>
-    <div className="border-2 border-lightGray rounded-sm shadow-md">
+    <div className="flex flex-col justify-between border-2 border-lightGray rounded-sm shadow-md">
       {/* header section */}
       <div className=" flex justify-between border-b-[1px] border-lightGray border-collapse px-5 py-2.5">
       <div className="header flex flex-row gap-2 place-items-center ">
