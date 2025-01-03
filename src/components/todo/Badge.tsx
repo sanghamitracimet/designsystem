@@ -32,7 +32,7 @@ const colorMap = {
     bg: 'bg-gray',
     text: 'text-white',
     border: 'border-gray',
-    darkText: 'dark:text-gray',
+    darkText: 'dark:text-white',
   },
 
 };
