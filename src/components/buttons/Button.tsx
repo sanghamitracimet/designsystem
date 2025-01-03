@@ -1,13 +1,10 @@
+
+import { BtnProps } from "@/utils/types";
 import React from "react";
 
-interface BtnProps {
-  readonly title: string;
-  readonly textColor: string;
-  readonly bgColor: string;
-  readonly classNames?: readonly string[]; // Optional array of additional class names
-}
 
-function Button({ title, textColor, bgColor, classNames = [] }: BtnProps) {
+
+function Button({ title, textColor, bgColor, classNames = [] }: Readonly<BtnProps>) {
   // Combine base classes with dynamic classes
   const combinedClasses = [
     `text-${textColor}`, // Dynamic text color

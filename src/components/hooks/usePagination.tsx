@@ -1,6 +1,16 @@
 import { useMemo } from "react";
 
-export const usePagination: React.FC = ({
+export const usePagination: ({
+  totalDataCount,
+  dataPerPage,
+  siblingCount,
+  currentPage,
+}: {
+  totalDataCount: number;
+  dataPerPage: number;
+  siblingCount: number;
+  currentPage: number;
+}) => number[] = ({
   totalDataCount,
   dataPerPage,
   siblingCount,
