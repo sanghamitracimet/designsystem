@@ -1,19 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { AiFillDashboard, AiOutlineClose } from "react-icons/ai";
 import { BiSolidPieChartAlt2 } from "react-icons/bi";
 import { FaTable } from "react-icons/fa";
 import { LuListTodo } from "react-icons/lu";
 
 const SideNav = ({ isOpen, toggleSideNav }: { isOpen: boolean; toggleSideNav: () => void; }) => {
-  const [activeLink, setActiveLink] = useState("/");
   const router = useRouter();
 
-  const handleLinkClick = (href) => {
-    setActiveLink(href);
-    router.push(href);
-  };
   return (
     <aside className="lg:w-56 md:w-0 sm:w-0">
       <button
@@ -35,57 +29,45 @@ const SideNav = ({ isOpen, toggleSideNav }: { isOpen: boolean; toggleSideNav: ()
           />
         </div>
         <ul className="space-y-8">
-          <li
-            className={`flex gap-2 items-center p-2 rounded-lg ${activeLink === "/" ? "bg-darkBlue" : ""}`}
-            onClick={() => handleLinkClick("/")}
+          <Link
+            className={`flex gap-2 items-center p-2 rounded-lg ${router.pathname === "/" ? "bg-darkBlue" : ""}`}
+            href="/"
           >
-            <AiFillDashboard className="w-6 h-6" />
-            <Link className="text-md" href="/" onClick={() => handleLinkClick("/")}>
-              Dashboard
-            </Link>
-          </li>
+            <li className="flex gap-2 items-center">
+              <AiFillDashboard className="w-6 h-6" />
+              <span className="text-md">Dashboard</span>
+            </li>
+          </Link>
 
-          <li
-            className={`flex gap-2 items-center p-2 rounded-lg ${activeLink === "/charts" ? "bg-darkBlue" : ""}`}
-            onClick={() => handleLinkClick("/charts")}
+          <Link
+            className={`flex gap-2 items-center p-2 rounded-lg ${router.pathname === "/charts" ? "bg-darkBlue" : ""}`}
+            href="/charts"
           >
-            <BiSolidPieChartAlt2 className="w-6 h-6" />
-            <Link
-              className="text-md"
-              href="/charts"
-              onClick={() => handleLinkClick("/charts")}
-            >
-              Chart
-            </Link>
-          </li>
+            <li className="flex gap-2 items-center">
+              <BiSolidPieChartAlt2 className="w-6 h-6" />
+              <span className="text-md">Chart</span>
+            </li>
+          </Link>
 
-          <li
-            className={`flex gap-2 items-center p-2 rounded-lg ${activeLink === "/data-table" ? "bg-darkBlue" : ""}`}
-            onClick={() => handleLinkClick("/data-table")}
+          <Link
+            className={`flex gap-2 items-center p-2 rounded-lg ${router.pathname === "/data-table" ? "bg-darkBlue" : ""}`}
+            href="/data-table"
           >
-            <FaTable className="w-6 h-6" />
-            <Link
-              className="text-md"
-              href="/data-table"
-              onClick={() => handleLinkClick("/data-table")}
-            >
-              Data Table
-            </Link>
-          </li>
+            <li className="flex gap-2 items-center">
+              <FaTable className="w-6 h-6" />
+              <span className="text-md">Data Table</span>
+            </li>
+          </Link>
 
-          <li
-            className={`flex gap-2 items-center p-2 rounded-lg ${activeLink === "/ag-grid" ? "bg-darkBlue" : ""}`}
-            onClick={() => handleLinkClick("/ag-grid")}
+          <Link
+            className={`flex gap-2 items-center p-2 rounded-lg ${router.pathname === "/ag-grid" ? "bg-darkBlue" : ""}`}
+            href="/ag-grid"
           >
-            <LuListTodo className="w-6 h-6" />
-            <Link
-              className="text-md"
-              href="/ag-grid"
-              onClick={() => handleLinkClick("/ag-grid")}
-            >
-              AG Grid
-            </Link>
-          </li>
+            <li className="flex gap-2 items-center">
+              <LuListTodo className="w-6 h-6" />
+              <span className="text-md">AG Grid</span>
+            </li>
+          </Link>
         </ul>
       </div>
     </aside>

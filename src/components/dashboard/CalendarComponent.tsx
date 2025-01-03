@@ -126,7 +126,7 @@ const CalendarComponent: React.FC = () => {
           components={{
             toolbar: ({ label, onNavigate, onView }) => (
               <div className="flex flex-row justify-between items-center p-2 bg-lightGray">
-                <div className="flex flex-wrap space-x-1">
+                <div className="flex flex-wrap gap-2 sm:block">
                   <button
                     className="text-sm bg-blue text-white p-1 rounded-md  hover:bg-blue hover:text-white"
                     onClick={() => onView('month')}
@@ -143,19 +143,21 @@ const CalendarComponent: React.FC = () => {
 
                 <div className="text-sm font-semibold text-black mb-2 md:mb-0">{label}</div>
 
-                
-                <div className="flex flex-wrap space-x-1 mb-2 md:mb-0">
+
+                <div className="flex flex-wrap justify-end gap-1 mb-2 md:mb-0">
                   <button
                     className="text-sm p-1 bg-blue text-white rounded-md  hover:bg-blue hover:text-white"
                     onClick={() => onNavigate('TODAY')}
                   >
                     Today
                   </button>
-                  <div className='p-1 bg-blue text-white rounded text-center hover:bg-blue'>
-                    <GrPrevious className="w-4 h-4 text-white font-bold" onClick={() => onNavigate('PREV')} />
-                  </div>
-                  <div className='p-1 bg-blue text-white rounded text-center hover:bg-blue'>
-                    <GrNext className="w-4 h-4 text-white font-bold" onClick={() => onNavigate('NEXT')} />
+                  <div className='flex gap-1'>
+                    <div className='p-1 bg-blue text-white rounded text-center hover:bg-blue'>
+                      <GrPrevious className="w-4 h-4 text-white font-bold" onClick={() => onNavigate('PREV')} />
+                    </div>
+                    <div className='p-1 bg-blue text-white rounded text-center hover:bg-blue'>
+                      <GrNext className="w-4 h-4 text-white font-bold" onClick={() => onNavigate('NEXT')} />
+                    </div>
                   </div>
                 </div>
               </div>

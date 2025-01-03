@@ -94,7 +94,7 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
   }, [tableDetails.tableRows]);
 
   return (
-    <div className="relative overflow-x-auto border border-gray rounded-md m-5 p-5 shadow-md sm:rounded-lg">
+    <div className="relative border overflow-x-auto border-gray rounded-md m-5 p-5 shadow-md sm:rounded-lg">
       {/* Filter Dropdowns */}
       <div className="flex justify-between gap-5 mb-4">
         <div className="flex gap-4">
@@ -143,7 +143,7 @@ function ReUsableTable({ tableDetails }: ReUsableTableProps) {
           {currentRows.map((ele) => (
             <tr
               key={ele.id}
-              className="bg-white border-y border-slate-200 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+              className="bg-white border-y overflow-y-scroll border-slate-200 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
             > 
               <td className="px-6 py-4">{ele.id}</td>
               <td className="px-6 py-4">
