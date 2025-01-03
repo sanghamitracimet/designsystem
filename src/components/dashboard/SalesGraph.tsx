@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTable } from "react-icons/fa";
 import ChartComponent from "../charts/chartComponent";
-import { lineChartData, noGridOptions } from "../charts/data";
+import { gridOptions, salesGraphChartData } from "./chartData";
 
 const SalesGraph: React.FC = () => {
 
@@ -16,8 +16,8 @@ const SalesGraph: React.FC = () => {
       <div className={`transition-all ease-in-out duration-300 overflow-hidden mt-4`}>
         <ChartComponent
           type="line"
-          data={lineChartData}
-          options={noGridOptions}
+          data={salesGraphChartData}
+          options={gridOptions}
           className="p-2.5 h-72"
         />
       </div>
