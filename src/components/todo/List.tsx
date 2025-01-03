@@ -131,7 +131,6 @@ const List: React.FC<ListProps> = ({
             setError={setError}
             addItemClicked={addItemClicked}
             createNewTodo={createNewTodo}
-            setAddItemClicked={setAddItemClicked}
             handleSaveTask={handleSaveTask}
             handleCancelTask={() => {
               setAddItemClicked(false);

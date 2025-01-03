@@ -45,8 +45,8 @@ error: boolean
 setError:React.Dispatch<React.SetStateAction<boolean>>
 addItemClicked : boolean
 createNewTodo: (taskName: string, priority: "low" | "medium" | "high") => void
-setAddItemClicked: React.Dispatch<React.SetStateAction<boolean>>;
 handleSaveTask: ()=> void
+handleCancelTask: ()=> void
 }
 
 export type PaginationProps<T> = {
