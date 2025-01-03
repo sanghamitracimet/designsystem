@@ -18,7 +18,7 @@ const SalesGraph: React.FC = () => {
           type="line"
           data={lineChartData}
           options={noGridOptions}
-          className="p-2.5 h-72 max-w-screen-sm"
+          className="p-2.5 h-72"
         />
       </div>
     </div>

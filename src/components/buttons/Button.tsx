@@ -2,11 +2,8 @@
 import { BtnProps } from "@/utils/types";
 import React from "react";
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 40aeb4b715abce6d997640aba3b8a62ccd755c24
 function Button({ title, textColor, bgColor, classNames = [] }: Readonly<BtnProps>) {
   // Combine base classes with dynamic classes
   const combinedClasses = [

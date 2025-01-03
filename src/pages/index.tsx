@@ -16,11 +16,12 @@ const Home = () => {
           <SalesGraph />
         </div>
         <div className="w-full">
-          <Todo />
-        </div>
-        <div className="w-full">
           <CalendarComponent />
         </div>
+        <div className="w-full">
+          <Todo />
+        </div>
+        
       </div>
     </div>
   );
