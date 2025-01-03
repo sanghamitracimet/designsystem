@@ -6,7 +6,7 @@ import SalesGraph from "@/components/dashboard/SalesGraph";
 
 const Home = () => {
   return (
-    <div className="flex flex-grow flex-col p-4">
+    <div className="flex flex-grow flex-col p-4 pt-10">
       <DashboardCards />
       <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="w-full">
