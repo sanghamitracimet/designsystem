@@ -18,6 +18,22 @@
     ag-charts-types "10.3.3"
     tslib "^2.3.0"
 
+"@ag-grid-community/client-side-row-model@^32.3.3":
+  version "32.3.3"
+  resolved "https://registry.npmjs.org/@ag-grid-community/client-side-row-model/-/client-side-row-model-32.3.3.tgz"
+  integrity sha512-/6OFltj9qax/xfOcYMOKGFQRFTrPX8hrELfS2jChWwpo/+rpnnFqN2iUlIiAB1tDJZsi2ryl8S4UoFSTcEv/VA==
+  dependencies:
+    "@ag-grid-community/core" "32.3.3"
+    tslib "^2.3.0"
+
+"@ag-grid-community/core@32.3.3", "@ag-grid-community/core@^32.3.3":
+  version "32.3.3"
+  resolved "https://registry.npmjs.org/@ag-grid-community/core/-/core-32.3.3.tgz"
+  integrity sha512-JMr5ahDjjl+pvQbBM1/VrfVFlioCVnMl1PKWc6MC1ENhpXT1+CPQdfhUEUw2VytOulQeQ4eeP0pFKPuBZ5Jn2g==
+  dependencies:
+    ag-charts-types "10.3.3"
+    tslib "^2.3.0"
+
 "@alloc/quick-lru@^5.2.0":
   version "5.2.0"
   resolved "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz"
